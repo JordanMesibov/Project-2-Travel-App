@@ -19,26 +19,45 @@ router
   res.render("home");
 });
 
-
-
-app.get("/dashboard", function(req, res) {
-  res.render("dashboard");
-});
-
-app.get("/groupcreatepage", function(req, res) {
-  res.render("groupcreatepage");
-});
-
-app.get("/grouppage", function(req, res) {
-  res.render("grouppage");
-});
-
-app.get("/home", function(req, res) {
+router
+.route("/")
+.get(function(req, res) {
+  if (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
   res.render("home");
 });
 
+router
+.route("/dashboard")
+.get(function(req, res) {
+  if (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+  res.render("dashboard");
+});
 
+router
+.route("/creategroup")
+.get(function(req, res) {
+  if (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+  res.render("creategroup");
+});
 
+router
+.route("/grouppage")
+.get(function(req, res) {
+  if (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+  res.render("grouppage");
+});
 
 
 module.exports = router;
