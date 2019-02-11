@@ -4,14 +4,10 @@
   "description": "This is my group's repo for Project 2. We will make an app to help groups of people decide on their vacation plans.",
   "main": "server.js",
   "dependencies": {
-<<<<<<< HEAD
     "exphbs": "^1.2.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "fs": "0.0.1-security",
-=======
-    "express": "^4.16.4",
->>>>>>> 6076b6e2f5b6d6306aa40da83cb99f188d94f2bf
     "mysql2": "^1.6.5",
     "path": "^0.12.7",
     "sequelize": "^4.42.0",

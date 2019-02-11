@@ -49,12 +49,10 @@ router
     res.render("grouppage");
   });
 
-
-
   router
   .route("/login")
   .get(function (req, res) {
-    res.render("login")
+    res.render("login");
   })
 
 module.exports = router;
