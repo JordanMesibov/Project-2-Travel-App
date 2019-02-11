@@ -25,7 +25,7 @@ CREATE TABLE buddies
   PRIMARY Key (group_id)
 );
 
-CREATE TABLE user_groups
+CREATE TABLE member_groups
 (
 	id int NOT NULL,
 	group_id VARCHAR(255) NOT NULL
