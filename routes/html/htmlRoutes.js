@@ -1,6 +1,6 @@
 const router = require("express").Router();
 // import database connection
-const db = require("../../config/connection");
+// const db = require("../../config/connection");
 
 
 //test for priyesh
@@ -10,54 +10,44 @@ const db = require("../../config/connection");
 
 // Set Handlebars as the default templating engine.
 router
-.route("/")
-.get(function(req, res) {
-  if (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
-  res.render("home");
-});
+  .route("/")
+  .get(function (req, res) {
+    // if (err) {
+    //   console.log(err);
+    //   return res.status(500).json(err);
+    // }
+    res.render("home");
+  });
 
 router
-.route("/")
-.get(function(req, res) {
-  if (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
-  res.render("home");
-});
+  .route("/dashboard")
+  .get(function (req, res) {
+    // if (err) {
+    //   console.log(err);
+    //   return res.status(500).json(err);
+    // }
+    res.render("dashboard");
+  });
 
 router
-.route("/dashboard")
-.get(function(req, res) {
-  if (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
-  res.render("dashboard");
-});
+  .route("/creategroup")
+  .get(function (req, res) {
+    // if (err) {
+    //   console.log(err);
+    //   return res.status(500).json(err);
+    // }
+    res.render("creategroup");
+  });
 
 router
-.route("/creategroup")
-.get(function(req, res) {
-  if (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
-  res.render("creategroup");
-});
-
-router
-.route("/grouppage")
-.get(function(req, res) {
-  if (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
-  res.render("grouppage");
-});
+  .route("/grouppage")
+  .get(function (req, res) {
+    // if (err) {
+    //   console.log(err);
+    //   return res.status(500).json(err);
+    // }
+    res.render("grouppage");
+  });
 
 
 module.exports = router;
