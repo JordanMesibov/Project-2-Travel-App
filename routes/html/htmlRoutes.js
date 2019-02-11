@@ -50,4 +50,11 @@ router
   });
 
 
+
+  router
+  .route("/login")
+  .get(function (req, res) {
+    res.render("login")
+  })
+
 module.exports = router;
