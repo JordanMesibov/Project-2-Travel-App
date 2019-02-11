@@ -9,6 +9,7 @@ CREATE TABLE users
 	name VARCHAR(255) NOT NULL,
 	email VARCHAR (35) NOT NULL,
   group_id VARCHAR (35),
+	has_voted BOOLEAN DEFAULT false
 	PRIMARY KEY (id)
   
 );
