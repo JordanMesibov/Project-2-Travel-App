@@ -55,4 +55,10 @@ router
     res.render("login");
   })
 
+  router
+  .route("/signup")
+  .get(function (req, res) {
+    res.render("signup");
+  })
+
 module.exports = router;
