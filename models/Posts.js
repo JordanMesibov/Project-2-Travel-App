@@ -1,3 +1,5 @@
+// copy from Alex's passport
+
 module.exports = function(sequelize, DataTypes) {
 
   const Posts = sequelize.define("Posts", {
@@ -42,3 +44,4 @@ module.exports = function(sequelize, DataTypes) {
 
   return Posts;
 }
+//---------------Alex's passport done here ---------------

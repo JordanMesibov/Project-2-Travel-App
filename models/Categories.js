@@ -1,3 +1,5 @@
+// copy from Alex's passport
+
 module.exports = function(sequelize, DataTypes) {
   const Categories = sequelize.define("Categories", {
     category_name: {
