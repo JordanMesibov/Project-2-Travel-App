@@ -40,9 +40,9 @@ var router  = express.Router();
       });
   });
 
-  // DELETE route for deleting posts
+  // DELETE route for deleting users
   router.delete("/:id", function(req, res) {
-    db.Post.destroy({
+    db.User.destroy({
       where: {
         id: req.params.id
       }
@@ -54,7 +54,7 @@ var router  = express.Router();
 
   // PUT route for toggling has_voted to true once user votes on vacation options
   router.put("/", function(req, res) {
-    db.Post.update(req.body,
+    db.User.update(req.body,
       {
         where: {
           id: req.body.id
