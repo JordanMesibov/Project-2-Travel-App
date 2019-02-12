@@ -57,4 +57,4 @@ $(function() {
   });
 });
 
-console.log("hello jordan");
+// console.log("hello jordan");
