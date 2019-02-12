@@ -44,5 +44,3 @@ CREATE TABLE destination_groups
 	group_id VARCHAR(255) NOT NULL
 );
 
-
-
