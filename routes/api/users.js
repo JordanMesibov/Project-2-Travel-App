@@ -5,7 +5,7 @@ var router  = express.Router();
 
 
   // GET route for getting all of the users
-  router.get("/users/", function(req, res) {
+  router.get("/", function(req, res) {
     db.User.findAll({})
       .then(function(result) {
         res.json(result);
@@ -13,7 +13,7 @@ var router  = express.Router();
   });
 
   // Get route for returning specific user info
-  router.get("/users/:id", function(req, res) {
+  router.get("/:id", function(req, res) {
     db.User.findAll({
       where: {
         id: req.params.id
@@ -26,7 +26,7 @@ var router  = express.Router();
 
 
   // POST route for creating new user
-  router.post("/posts", function(req, res) {
+  router.post("/", function(req, res) {
     console.log(req.body);
     db.User.create({
       firstName: req.body.firstName,
@@ -41,7 +41,7 @@ var router  = express.Router();
   });
 
   // DELETE route for deleting posts
-  router.delete("/posts/:id", function(req, res) {
+  router.delete("/:id", function(req, res) {
     db.Post.destroy({
       where: {
         id: req.params.id
@@ -53,7 +53,7 @@ var router  = express.Router();
   });
 
   // PUT route for toggling has_voted to true once user votes on vacation options
-  router.put("/posts", function(req, res) {
+  router.put("/", function(req, res) {
     db.Post.update(req.body,
       {
         where: {
