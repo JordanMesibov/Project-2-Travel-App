@@ -1,1 +1,88 @@
-<h1>GROUPPAGE</h1>
+<div class="container">
+
+  <h1>Group Page for ranking preferences</h1>
+  {{!-- 
+Temp buttons that will be removed at the end of the projected added them for ease of navigation --}}
+
+  <a type="button" class="btn  btn-lg btn-success" href="/">Home</a>
+  <a type="button" class="btn btn-lg btn-success" href="/login">Login PAGE</a>
+  <a type="button" class="btn btn-lg btn-success" href="/signup">SignUp PAGE</a>
+  <a type="button" class="btn  btn-lg btn-success" href="/dashboard">Dashboard Page</button>
+    <a type="button" class="btn btn-lg btn-success" href="/grouppage">Group Page</a>
+    <a type="button" class="btn btn-lg btn-success" href="/creategroup">Create Group Page</a>
+
+
+    <div class="card">
+      <div class="card-header bg-success text-light">
+        <h1>INSERT GROUP NAME HERE BY GETTING IT FROM DB</h1>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">(GRAB NAME OF USERNAME FROM DB HERE), rank your preferences!</h5>
+        <p class="card-text">Assign preferences to your different vacation options.</p>
+
+        <form>
+          <div class="form-group">
+            <label for="memberPref1">Your Number One Preference:</label>
+            <select class="form-control" id="memberPref1">
+              <option>city1Name variable from creategroup.js and/or DB</option>
+              <option>city2Name variable from creategroup.js and/or DB</option>
+              <option>city3Name variable from creategroup.js and/or DB</option>
+              <option>city4Name variable from creategroup.js and/or DB</option>
+              <option>city5Name variable from creategroup.js and/or DB</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="memberPref2">Your Number Two Preference:</label>
+            <select class="form-control" id="memberPref2">
+              <option>city1Name variable from creategroup.js and/or DB</option>
+              <option>city2Name variable from creategroup.js and/or DB</option>
+              <option>city3Name variable from creategroup.js and/or DB</option>
+              <option>city4Name variable from creategroup.js and/or DB</option>
+              <option>city5Name variable from creategroup.js and/or DB</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="memberPref3">Your Number Three Preference:</label>
+            <select class="form-control" id="memberPref3">
+              <option>city1Name variable from creategroup.js and/or DB</option>
+              <option>city2Name variable from creategroup.js and/or DB</option>
+              <option>city3Name variable from creategroup.js and/or DB</option>
+              <option>city4Name variable from creategroup.js and/or DB</option>
+              <option>city5Name variable from creategroup.js and/or DB</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="memberPref4">Your Number Four Preference:</label>
+            <select class="form-control" id="memberPref4">
+              <option>city1Name variable from creategroup.js and/or DB</option>
+              <option>city2Name variable from creategroup.js and/or DB</option>
+              <option>city3Name variable from creategroup.js and/or DB</option>
+              <option>city4Name variable from creategroup.js and/or DB</option>
+              <option>city5Name variable from creategroup.js and/or DB</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="memberPref5">Your Number Five Preference:</label>
+            <select class="form-control" id="memberPref5">
+              <option>city1Name variable from creategroup.js and/or DB</option>
+              <option>city2Name variable from creategroup.js and/or DB</option>
+              <option>city3Name variable from creategroup.js and/or DB</option>
+              <option>city4Name variable from creategroup.js and/or DB</option>
+              <option>city5Name variable from creategroup.js and/or DB</option>
+            </select>
+          </div>
+
+          <a href="#" class="btn btn-primary btn-block" id="submit">Submit</a>
+        </form>
+      </div>
+    </div>
+
+</div>
+
+
+
+<script src="/js/grouppage.js"></script>

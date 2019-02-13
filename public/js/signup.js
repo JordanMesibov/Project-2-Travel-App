@@ -23,3 +23,4 @@ $(document).ready(function () {
   });
 
 });
+console.log("Signup.js Linked!");
