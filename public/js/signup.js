@@ -1,11 +1,12 @@
 $(document).ready(function () {
 
-  $("#signup-form").on("submit", function (e) {
+  $("#signUp").on("click", function (e) {
     e.preventDefault();
-
+    console.log("this hit");
     const userInfo = {
-      first_name: $("#first-name-input").val().trim(),
-      last_name: $("#last-name-input").val().trim(),
+      firstName: $("#first-name-input").val().trim(),
+      lastName: $("#last-name-input").val().trim(),
+      userName: $("#user-name-input").val().trim(),
       email: $("#email-input").val().trim(),
       password: $("#password-input").val().trim()
     };
@@ -17,7 +18,7 @@ $(document).ready(function () {
     })
       .then((userInfo) => {
         console.log(userInfo);
-        location.replace(userInfo)
+        location.replace("/dashboard")
       })
       .catch(err => console.log(err));
   });
