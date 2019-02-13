@@ -41,5 +41,14 @@ module.exports = function(sequelize, DataTypes) {
       
     });
 
+    VacationOptions.associate = function (models) {
+    models.VacationOptions.belongsTo(models.Group, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    };
+
   return VacationOptions;
 };
