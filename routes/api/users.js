@@ -53,11 +53,12 @@ var router  = express.Router();
   });
 
   // PUT route for toggling has_voted to true once user votes on vacation options
-  router.put("/", function(req, res) {
+  router.put("/:id", function(req, res) {
     db.User.update(req.body,
       {
+        
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       })
       .then(function(result) {
