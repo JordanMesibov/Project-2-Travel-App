@@ -1,5 +1,5 @@
 $(function () {
-  $("#submit").on("click", function(event) {
+  $("#submit").on("click", function (event) {
 
     let groupName = $("#groupName").val().trim();
     console.log(groupName);
@@ -19,18 +19,27 @@ $(function () {
     let city5Name = $("#city5").val().trim();
     console.log(city5Name);
 
-
+    // $(".addedMembers").html("");
   });
-  //set up the function for capturing added group members
-  //when the submit button, which has an ID of addMembers becomes clicked:
-  $("#addMembers").on("click", function(event) {
-    //capture the input in the addGroupMembers form field
-    let newGroupMember = $("#addGroupMembers").val().trim();
-    //grab the div with an ID of addedMembers and prepend the newGroupMember to it
-    $("#addedMembers").prepend(newGroupMember);
-    $("#addedMembers").append("<br>");
-    $("#addGroupMembers").val("");
 
-  }
+   //set up the function for capturing added group members
+    //when the submit button, which has an ID of addMembers becomes clicked:
+    $("#addMembers").on("click", function (event) {
+      event.preventDefault();
+      //capture the input in the addGroupMembers form field
+      let newGroupMember = $("#addGroupMembers").val().trim();
+      //--------------------------------------------------------------------
+      //right here is where we need to POST this user to the DB, before we reassign the newGroupMember variable!
 
-)});
+
+      //--------------------------------------------------------------------
+      console.log("New Group Member below!");
+      console.log(newGroupMember);
+      //grab the div with an ID of addedMembers and prepend the newGroupMember to it
+      $(".addedMembers").prepend(newGroupMember);
+      $(".addedMembers").prepend("<br>");
+      $("#addGroupMembers").val("");
+
+    });
+
+});
