@@ -81,6 +81,7 @@ router
   //     });
   // });
 
+<<<<<<< HEAD
   // // PUT route for toggling has_voted to true once user votes on vacation options
   // router.put("/", function(req, res) {
   //   db.User.update(req.body,
@@ -93,6 +94,21 @@ router
   //       res.json(result);
   //     });
   // });
+=======
+  // PUT route for toggling has_voted to true once user votes on vacation options
+  router.put("/:id", function(req, res) {
+    db.User.update(req.body,
+      {
+        
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(result) {
+        res.json(result);
+      });
+  });
+>>>>>>> 1aa2aadfe792f89276d2da79fe00ffe49688776d
 
 
 module.exports = router;
