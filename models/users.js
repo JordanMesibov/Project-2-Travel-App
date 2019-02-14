@@ -1,3 +1,5 @@
+const bcryptjs = require("bcryptjs");
+
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     firstName: {
@@ -48,8 +50,23 @@ module.exports = function(sequelize, DataTypes) {
       // defaultValue is a flag that defaults a new tables complete value to false if
       // it isn't supplied one
       defaultValue: false
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
+
+  // create method for all user objects to use
+  User.prototype.validPassword = function(password) {
+    return bcryptjs.compareSync(password, this.password);
+  }
+
+  User.hook("beforeCreate", function(user) {
+    user.password = bcryptjs.hashSync(user.password, bcryptjs.genSaltSync(10), null);
+  });
+
+
   
   return User;
 };

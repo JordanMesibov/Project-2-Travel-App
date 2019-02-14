@@ -1,5 +1,7 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
+const passport = require("./utils/middleware/passport-local");
+const session = require("express-session");
 const routes = require("./routes");
 // Set up the Express App
 
@@ -16,6 +18,11 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+// turn on session and passport stuff for authentication
+app.use(session({secret: "keyboard cat", resave: true, saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Routes
 // require("./routes/api/api-routes.js/index.js");
 
@@ -29,7 +36,7 @@ app.use(routes);
 
 
 // Sync sequelize, then start Express
-db.sequelize.sync({}).then(function() {
+db.sequelize.sync({force: false}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
