@@ -5,19 +5,30 @@ $(function () {
     console.log(groupName);
 
     let city1Name = $("#city1").val().trim();
-    console.log(city1Name);
-
     let city2Name = $("#city2").val().trim();
-    console.log(city2Name);
-
     let city3Name = $("#city3").val().trim();
-    console.log(city3Name);
-
     let city4Name = $("#city4").val().trim();
-    console.log(city4Name);
-
     let city5Name = $("#city5").val().trim();
     console.log(city5Name);
+
+    let vacaInfo = {
+      city1: city1Name,
+      city2: city2Name,
+      city3: city3Name,
+      city4: city4Name,
+      city5: city5Name
+    };
+
+    console.log("This is creategroups city1 "+ city1Name);
+    $.ajax({
+      url: '/api/vacations',
+      method: 'POST',
+      data: vacaInfo
+    })
+    .then(() => {
+      location.reload();
+    })
+    .catch(err => console.log(err));
 
     // $(".addedMembers").html("");
   });
