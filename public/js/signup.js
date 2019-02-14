@@ -18,7 +18,7 @@ $(document).ready(function () {
     })
       .then((userInfo) => {
         console.log(userInfo);
-        location.replace("/dashboard")
+        location.replace("/login")
       })
       .catch(err => console.log(err));
   });
