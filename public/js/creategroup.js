@@ -1,6 +1,9 @@
 $(function () {
   $("#submit").on("click", function(event) {
 
+    let groupName = $("#groupName").val().trim();
+    console.log(groupName);
+
     let city1Name = $("#city1").val().trim();
     console.log(city1Name);
 
