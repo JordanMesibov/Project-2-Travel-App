@@ -7,6 +7,6 @@ var vacationOptions = require('./vacationOptions.js');
 
 router.use('/users', users);
 router.use('/groups', groups);
-router.use('/vacationOptions', vacationOptions);
+router.use('/vacations', vacationOptions);
 
 module.exports = router;
