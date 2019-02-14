@@ -27,8 +27,11 @@ var router  = express.Router();
   router.post("/", function(req, res) {
     console.log(req.body);
     db.VacationOptions.create({
-      name: req.body.name,
-      optionaArray: req.body.optionsArray
+      city1: req.body.city1,
+      city2: req.body.city2,
+      city3: req.body.city3,
+      city4: req.body.city4,
+      city5: req.body.city5
     })
       .then(function(result) {
         res.json(result);

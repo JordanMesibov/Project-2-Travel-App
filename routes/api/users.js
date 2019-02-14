@@ -55,6 +55,7 @@ router
 
 
   // POST route for creating new user
+<<<<<<< HEAD
   // router.post("/", function(req, res) {
   //   console.log(req.body);
   //   db.User.create({
@@ -68,6 +69,22 @@ router
   //       res.json(result);
   //     });
   // });
+=======
+  router.post("/", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      fullName: req.body.fullName,
+      userName: req.body.userName,
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function(result) {
+        res.json(result);
+      });
+  });
+>>>>>>> 690cecc38bcb1fa27108ae35da7404513c43414a
 
   // // DELETE route for deleting users
   // router.delete("/:id", function(req, res) {
