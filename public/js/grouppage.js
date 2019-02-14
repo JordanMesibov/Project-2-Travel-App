@@ -36,4 +36,3 @@ $(function() {
   });
 });
 
-// console.log("hello jordan");
