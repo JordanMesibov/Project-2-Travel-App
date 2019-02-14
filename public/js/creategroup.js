@@ -29,6 +29,7 @@ $(function () {
     //grab the div with an ID of addedMembers and prepend the newGroupMember to it
     $("#addedMembers").prepend(newGroupMember);
     $("#addedMembers").append("<br>");
+    $("#addGroupMembers").val("");
 
   }
 
