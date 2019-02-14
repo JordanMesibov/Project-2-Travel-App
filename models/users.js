@@ -34,9 +34,14 @@ module.exports = function(sequelize, DataTypes) {
     email: {
        type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         len: [1, 255]
       }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
     hasVoted: {
       type: DataTypes.BOOLEAN,
@@ -45,5 +50,6 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     }
   });
+  
   return User;
 };
