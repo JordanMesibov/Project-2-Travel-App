@@ -3,7 +3,7 @@ const db = require('../models');
 module.exports = {
   findAll: function(req, res) {
     db
-      .Users
+      .User
       .findAll({
         attributes: ["id", "first_name", "last_name", "full_name", "user_name"]
       })
@@ -15,7 +15,7 @@ module.exports = {
   },
   findByName: function (req, res) {
     db
-      .Users
+      .User
       .findOne({
         attributes: ["id", "first_name", "last_name", "full_name", "user_name"],
         where: {
@@ -39,7 +39,7 @@ module.exports = {
   },
   update: function (req, res) {
     db
-      .Users
+      .User
       .update(req.body, {
         where: {
           username: req.params.username
@@ -53,7 +53,7 @@ module.exports = {
   },
   delete: function (req, res) {
     db
-      .Users
+      .User
       .destroy({
         where: {
           username: req.params.username
