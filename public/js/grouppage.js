@@ -18,6 +18,21 @@ $(function() {
     let memberPref5 = $("#memberPref5").val();
     console.log(memberPref5);
 
+    let memberRating1 = $("#memberRating1").val();
+    console.log(memberRating1);
+
+    let memberRating2 = $("#memberRating2").val();
+    console.log(memberRating2);
+
+    let memberRating3 = $("#memberRating3").val();
+    console.log(memberRating3);
+
+    let memberRating4 = $("#memberRating4").val();
+    console.log(memberRating4);
+
+    let memberRating5 = $("#memberRating5").val();
+    console.log(memberRating5);
+
   });
 });
 
