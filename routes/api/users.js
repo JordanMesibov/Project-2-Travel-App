@@ -34,7 +34,8 @@ var router  = express.Router();
       fullName: req.body.fullName,
       userName: req.body.userName,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      GroupId: req.body.GroupId
     })
       .then(function(result) {
         res.json(result);

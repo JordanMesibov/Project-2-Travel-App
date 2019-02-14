@@ -31,7 +31,8 @@ var router  = express.Router();
       city2: req.body.city2,
       city3: req.body.city3,
       city4: req.body.city4,
-      city5: req.body.city5
+      city5: req.body.city5,
+      GroupId: req.body.GroupId
     })
       .then(function(result) {
         res.json(result);

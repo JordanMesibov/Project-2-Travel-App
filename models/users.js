@@ -50,6 +50,15 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     }
   });
+
+  User.associate = function (models) {
+  models.User.belongsTo(models.Group, {
+    onDelete: "CASCADE",
+    foreignKey: {
+      allowNull: false
+    }
+  });
+  };
   
   return User;
 };
