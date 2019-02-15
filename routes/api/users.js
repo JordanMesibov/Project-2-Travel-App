@@ -53,6 +53,11 @@ router
       });
   });
 
+  //  Get all users associated with a given group
+  router
+  .route('/group/:groupid')
+  .get(userController.findByGroup);
+
 
   // POST route for creating new user
   router.post("/", function(req, res) {
