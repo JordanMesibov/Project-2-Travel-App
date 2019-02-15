@@ -12,7 +12,7 @@ var router  = express.Router();
 
   // Get route for returning specific vacationOption info
   router.get("/:id", function(req, res) {
-    db.VacationOptions.findAll({
+    db.vacationOptions.findAll({
       where: {
         id: req.params.id
       }
@@ -26,14 +26,9 @@ var router  = express.Router();
   // POST route for creating new vacation option
   router.post("/", function(req, res) {
     console.log(req.body);
-    db.VacationOptions.create({
-      city1: req.body.city1,
-      city2: req.body.city2,
-      city3: req.body.city3,
-      city4: req.body.city4,
-      city5: req.body.city5
-    })
+    db.VacationOptions.create(req.body)
       .then(function(result) {
+        console.log("Just posted VacationOptions with " + result);
         res.json(result);
       });
   });

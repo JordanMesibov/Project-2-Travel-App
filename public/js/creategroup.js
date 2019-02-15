@@ -1,60 +1,31 @@
-$(function() {
-  $("#submit").on("click", function(event) {
+$(function () {
+  $("#submit").on("click", function() {
 
     let city1Name = $("#city1").val().trim();
-    console.log(city1Name);
-
     let city2Name = $("#city2").val().trim();
-    console.log(city2Name);
-
     let city3Name = $("#city3").val().trim();
-    console.log(city3Name);
-
     let city4Name = $("#city4").val().trim();
-    console.log(city4Name);
-
     let city5Name = $("#city5").val().trim();
-    console.log(city5Name);
+    
+    let vacaInfo = {
+      city1: city1Name,
+      city2: city2Name,
+      city3: city3Name,
+      city4: city4Name,
+      city5: city5Name
+    }
 
-    // below this is mostly code from one of the bootcamp activities using handlebars to use as reference.
-//     var newSleepState = {
-//       sleepy: newSleep
-//     };
-
-//     // Send the PUT request.
-//     $.ajax("/api/cats/" + id, {
-//       type: "PUT",
-//       data: newSleepState
-//     }).then(
-//       function() {
-//         console.log("changed sleep to", newSleep);
-//         // Reload the page to get the updated list
-//         location.reload();
-//       }
-//     );
-//   });
-
-//   $(".create-form").on("submit", function(event) {
-//     // Make sure to preventDefault on a submit event.
-//     event.preventDefault();
-
-//     var newCat = {
-//       name: $("#ca").val().trim(),
-//       sleepy: $("[name=sleepy]:checked").val().trim()
-//     };
-
-//     // Send the POST request.
-//     $.ajax("/api/cats", {
-//       type: "POST",
-//       data: newCat
-//     }).then(
-//       function() {
-//         console.log("created new cat");
-//         // Reload the page to get the updated list
-//         location.reload();
-//       }
-//     );
+    console.log("This is creategroups city1 "+ city1Name);
+    $.ajax({
+      url: '/api/vacations',
+      method: 'POST',
+      data: vacaInfo
+    })
+    .then(() => {
+      location.reload();
+    })
+    .catch(err => console.log(err));
   });
+  
 });
 
-// console.log("hello jordan");

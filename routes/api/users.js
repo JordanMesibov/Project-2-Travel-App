@@ -53,6 +53,12 @@ router
       });
   });
 
+  //  Get all users associated with a given group with get.  assign user to group with put
+  router
+  .route('/group/:groupid')
+  .get(userController.findByGroup)
+  .put(userController.assignGroup);
+
 
   // POST route for creating new user
   router.post("/", function(req, res) {
@@ -63,7 +69,8 @@ router
       fullName: req.body.fullName,
       userName: req.body.userName,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      GroupId: req.body.GroupId
     })
       .then(function(result) {
         res.json(result);
