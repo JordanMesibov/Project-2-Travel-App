@@ -101,5 +101,23 @@ module.exports = {
   login: function(req, res) {
     console.log(req.user);
     res.json("/");
-  }
+  },
+  
+  // Getting all users in a given group
+    findByGroup: function(req, res) {
+    db
+      .User
+      .findAll({
+        where: {
+          GroupId: req.params.groupid
+        }
+      })
+      .then(function(result) {
+        res.json(result)
+        })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  },
 }
