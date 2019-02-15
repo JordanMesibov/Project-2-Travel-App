@@ -53,10 +53,11 @@ router
       });
   });
 
-  //  Get all users associated with a given group
+  //  Get all users associated with a given group with get.  assign user to group with put
   router
   .route('/group/:groupid')
-  .get(userController.findByGroup);
+  .get(userController.findByGroup)
+  .put(userController.assignGroup);
 
 
   // POST route for creating new user
