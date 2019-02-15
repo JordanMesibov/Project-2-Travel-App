@@ -11,6 +11,16 @@ $(document).ready(function () {
       password: $("#password-input").val().trim()
     };
 
+    // check if anything is empty
+    $("form input").each(function(i) {
+      if (!$(this).val()) {
+        $(this).addClass("is-invalid");
+        return false;
+      } else {
+        $(this).removeClass("is-invalid").addClass("is-valid");
+      }
+    })
+
     $.ajax({
       url: '/api/users',
       method: 'POST',
