@@ -122,4 +122,22 @@ module.exports = {
         res.status(500).json(err);
       });
   },
+    // put route to assign users to a group
+    assignGroup: function(req, res) {
+    db
+      .User
+      .update({GroupId: req.params.groupid}, {
+        where: {
+          
+          id: req.body.id
+        }
+      })
+      .then(function(result) {
+        res.json(result);
+        })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
 }

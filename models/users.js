@@ -58,12 +58,9 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function (models) {
-  models.User.belongsTo(models.Group, {
-    onDelete: "CASCADE",
-    foreignKey: {
-      allowNull: false
-    }
-  });
+    models.User.belongsToMany(models.Group, {
+      through: "UserGroup"
+    });
   };
   // create method for all user objects to use
   User.prototype.validPassword = function(password) {
