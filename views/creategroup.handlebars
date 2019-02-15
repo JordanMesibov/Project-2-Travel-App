@@ -17,6 +17,7 @@ Temp buttons that will be removed at the end of the projected added them for eas
     </div>
     <div class="card-body">
       <h5 class="card-title">Creating a new vacation event</h5>
+
       <p class="card-text">What locations are you thinking about visiting?</p>
 
         <form>
@@ -44,6 +45,26 @@ Temp buttons that will be removed at the end of the projected added them for eas
           <div class="form-group">
             <label for="city5">City name:</label>
             <textarea class="form-control" id="city5" rows="1"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="groupName">Name your group:</label>
+            <textarea class="form-control" id="groupName" rows="1"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="addGroupMembers">Username of a person you want to add to this group:</label>
+            <textarea class="form-control" id="addGroupMembers" rows="1"></textarea>
+            <br>
+            <button class="btn btn-success" id="addMembers">Add this user to your new group</button>
+            <br>
+              <div class="names">
+                <p>Added members:</p>
+
+                <div class="addedMembers"></div>
+
+              </div>
+
           </div>
 
         </form>
