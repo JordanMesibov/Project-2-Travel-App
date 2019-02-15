@@ -20,6 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 
     Group.associate = function(models) {
     models.Group.hasMany(models.VacationOptions);
+    models.Group.hasMany(models.User);
   };
 
   return Group;

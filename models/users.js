@@ -57,6 +57,14 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  User.associate = function (models) {
+  models.User.belongsTo(models.Group, {
+    onDelete: "CASCADE",
+    foreignKey: {
+      allowNull: false
+    }
+  });
+  };
   // create method for all user objects to use
   User.prototype.validPassword = function(password) {
     return bcryptjs.compareSync(password, this.password);

@@ -101,5 +101,41 @@ module.exports = {
   login: function(req, res) {
     console.log(req.user);
     res.json("/");
+  },
+  
+  // Getting all users in a given group
+    findByGroup: function(req, res) {
+    db
+      .User
+      .findAll({
+        where: {
+          GroupId: req.params.groupid
+        }
+      })
+      .then(function(result) {
+        res.json(result)
+        })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  },
+    // put route to assign users to a group
+    assignGroup: function(req, res) {
+    db
+      .User
+      .update({GroupId: req.params.groupid}, {
+        where: {
+          
+          id: req.body.id
+        }
+      })
+      .then(function(result) {
+        res.json(result);
+        })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   }
 }
