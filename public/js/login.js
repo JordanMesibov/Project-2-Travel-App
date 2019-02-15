@@ -1,6 +1,11 @@
 $(document).ready(function() {
+
   
 $( "#logInBtn" ).click(function(e) {
+
+  var alert = `<div class="alert alert-danger" role="alert">
+  e-mail address or password incorrect!
+</div>`;
   e.preventDefault();
     console.log("this hit");
 
@@ -27,14 +32,16 @@ $( "#logInBtn" ).click(function(e) {
       data: userInfo
     })
     .then((userInfo) => {
-      // location.replace(userInfo);
+      console.log(userInfo);
       location.replace("/dashboard");
     })
-    .catch(err => console.log("Your password or username incorrect!"+err));
+    .catch(err => $('#alert').append(alert)
+      // console.log("Your password or username incorrect!"+err));
      
-  });
+)});
 
 
 console.log("login.js Linked!");
 
 });
+
