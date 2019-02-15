@@ -45,5 +45,17 @@ var router  = express.Router();
       });
   });
 
+  // Get route for returning vacation options associated with a group
+  router.get("/group/:groupid", function(req, res) {
+    db.VacationOptions.findAll({
+      where: {
+        GroupId: req.params.groupid
+      }
+    })
+      .then(function(result) {
+        res.json(result);
+      });
+  });
+
 
 module.exports = router;
