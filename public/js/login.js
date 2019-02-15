@@ -23,8 +23,6 @@ $( "#logInBtn" ).click(function(e) {
       password: $("#password-input").val().trim()
     };
 
-   
-  
 
     $.ajax({
       url: '/api/users/login',
@@ -35,7 +33,8 @@ $( "#logInBtn" ).click(function(e) {
       console.log(userInfo);
       location.replace("/dashboard");
     })
-    .catch(err => $('#alert').append(alert)
+    .catch(err => $('#alert').html(alert)
+    
       // console.log("Your password or username incorrect!"+err));
      
 )});
