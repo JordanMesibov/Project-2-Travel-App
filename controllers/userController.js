@@ -106,38 +106,40 @@ module.exports = {
   },
   
   // Getting all users in a given group
-    findByGroup: function(req, res) {
-    db
-      .User
-      .findAll({
-        where: {
-          GroupId: req.params.groupid
-        }
-      })
-      .then(function(result) {
-        res.json(result)
-        })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  },
-    // put route to assign users to a group
-    assignGroup: function(req, res) {
-    db
-      .User
-      .update({GroupId: req.params.groupid}, {
-        where: {
+  // commended out for now because groupid is no longer a row for users
+    // findByGroup: function(req, res) {
+    // db
+    //   .User
+    //   .findAll({
+    //     where: {
+    //       GroupId: req.params.groupid
+    //     }
+    //   })
+    //   .then(function(result) {
+    //     res.json(result)
+    //     })
+    //   .catch(err => {
+    //     console.log(err);
+    //     res.status(500).json(err);
+    //   });
+  // },
+    // put route to assign users to a 
+     //commented out for now because groupid is no longer a thing for user
+  //   assignGroup: function(req, res) {
+  //   db
+  //     .User
+  //     .update({GroupId: req.params.groupid}, {
+  //       where: {
           
-          id: req.body.id
-        }
-      })
-      .then(function(result) {
-        res.json(result);
-        })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
+  //         id: req.body.id
+  //       }
+  //     })
+  //     .then(function(result) {
+  //       res.json(result);
+  //       })
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.status(500).json(err);
+  //     });
+  // }
 }
