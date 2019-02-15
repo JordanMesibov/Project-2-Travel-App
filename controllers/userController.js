@@ -87,12 +87,14 @@ module.exports = {
                 .status(422)
                 .json(err);
             }
+          
             console.log(req.user);
             return res.json("/");
           });
       })
       .catch(function (err) {
-        console.log(err);
+        console.log("Your password or email is not correct!"+err);
+
         res
           .status(422)
           .json(err);
