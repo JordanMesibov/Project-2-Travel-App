@@ -1,18 +1,34 @@
 // console.log("grouppage.js linked!");
+var userName;
 //NavBar Code Start
 $.ajax({
   url: '/api/users/status',
   method: 'GET'
 }).then(function(userInfo) {
   console.log(userInfo);
-  $("#user-name").text(userInfo.full_name);
+  userName = $("#user-name").text(userInfo.full_name);
   $("#user-info")
+
     
     .append(`<p>Welcome: ${userInfo.userName}</p>`)
     .append(`<p>Email: ${userInfo.email}</p>`)
 })
 .catch(err => console.log(err));
 //NavBar Code End
+
+//function to get the cities for that user's group
+function userCities() {
+  
+  $.ajax({
+    url: "/api/vacations/" + userName,
+    method: "GET",
+  }).then(function(data) {
+    console.log("This is the data from vacations " + data + "using this group name " + userName);
+    // location.reload();
+  });
+  
+}
+
 
 $(function() {
   $("#submit").on("click", function(event) {
