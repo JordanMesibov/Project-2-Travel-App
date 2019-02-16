@@ -16,7 +16,7 @@ gets user info for username entered as parameter
 ### /api/users/:username PUT route - 
 Updates user info for user with username in parameter :username, using req.body key value pairs.
 ### /api/users/:username DELETE route - 
-Deletes a user where username is parameter :username.  This may not be too useful since usernames are not unique.
+Deletes a user where username is parameter :username.
 ### /api/users/id/:id Get route -
 gets user info user id entered as a parameter
 ### /api/users/id/:id PUT route -
