@@ -22,3 +22,7 @@ $( ".createGroup" ).click(function() {
 $( ".joinGroup" ).click(function() {
   alert( "CG clicked" );
 });
+
+// $(".logoutbtn").click(function() {
+//   alert("logout");
+// });
