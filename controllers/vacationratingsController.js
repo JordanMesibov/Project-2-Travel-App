@@ -10,7 +10,7 @@ module.exports = {
       });
   },
 
-  associate: function (req, res) {
+  addRating: function (req, res) {
     db
       .VacationRatings
       .create(req.body)
