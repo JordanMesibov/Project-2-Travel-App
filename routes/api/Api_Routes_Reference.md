@@ -52,3 +52,11 @@
   * Gets all usergroup associations between users table and groups table.
 * /api/usergroup **POST** route -
   * Creates new association between a user and a group by sending GroupId and UserId key value pairs in req.body.  User whose id is sent will be made a member of Group whose id is sent.
+   ----------
+
+## /api/vacationratings - 
+* /api/vacationratings **GET** -
+  * Gets all vacationratings
+* /api/vacationratings **POST** - 
+  * posts a new set of vacation ratings, where city1ranking and city1rating are required and the others optional
+   

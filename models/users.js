@@ -48,8 +48,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     hasVoted: {
       type: DataTypes.BOOLEAN,
-      // defaultValue is a flag that defaults a new tables complete value to false if
-      // it isn't supplied one
+      defaultValue: false
+    },
+    isLeader: {
+      type: DataTypes.BOOLEAN,
       defaultValue: false
     },
     password: {
@@ -61,6 +63,9 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function (models) {
     models.User.belongsToMany(models.Group, {
       through: "UserGroup"
+    });
+    models.User.belongsToMany(models.VacationRatings, {
+      through: "UserVacationRatings"
     });
   };
   // create method for all user objects to use
