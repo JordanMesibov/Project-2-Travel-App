@@ -48,6 +48,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    models.VacationOptions.hasMany(models.VacationRatings);
     };
 
   return VacationOptions;
