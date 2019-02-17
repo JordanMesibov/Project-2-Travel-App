@@ -4,7 +4,7 @@ $(document).ready(function() {
 $( "#logInBtn" ).click(function(e) {
 
   var alert = `<div class="alert alert-danger" role="alert">
-  e-mail address or password incorrect!
+  E-Mail Address or Password Incorrect!
 </div>`;
   e.preventDefault();
     console.log("this hit");
@@ -19,8 +19,8 @@ $( "#logInBtn" ).click(function(e) {
     })
 
     const userInfo = {
-      email: $("#email-input").val().trim(),
-      password: $("#password-input").val().trim()
+      email: $("#email-input1").val().trim(),
+      password: $("#password-input1").val().trim()
     };
 
    
