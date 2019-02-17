@@ -41,10 +41,10 @@ $(function () {
       city3: city3Name,
       city4: city4Name,
       city5: city5Name,
-      groupName: groupName
+      groupId: this.groupName
     };
 
-    console.log("This is creategroups city1 "+ city1Name);
+    console.log("This is creategroups groupId "+ groupId);
     $.ajax({
       url: '/api/vacations',
       method: 'POST',
