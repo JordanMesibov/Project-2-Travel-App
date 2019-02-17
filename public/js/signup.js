@@ -12,7 +12,7 @@ $(document).ready(function () {
     };
 
     // check if anything is empty
-    $("form input").each(function(i) {
+    $("form input").each(function (i) {
       if (!$(this).val()) {
         $(this).addClass("is-invalid");
         return false;
@@ -22,10 +22,10 @@ $(document).ready(function () {
     })
 
     $.ajax({
-      url: '/api/users',
-      method: 'POST',
-      data: userInfo
-    })
+        url: '/api/users',
+        method: 'POST',
+        data: userInfo
+      })
       .then((userInfo) => {
         console.log(userInfo);
         // location.replace("/login")
@@ -38,7 +38,6 @@ $(document).ready(function () {
 console.log("Signup.js Linked!");
 
 function switchFunction() {
-  alert("works!");
   $loginMsg.toggleClass("visibility");
   $frontbox.removeClass("moving");
   $signupMsg.toggleClass("visibility");
@@ -48,4 +47,9 @@ function switchFunction() {
 
   $(".works").html(`<h4> Sign Up Successful!
   Please Log In!`)
+  $("#first-name-input").reset();
+    $("#last-name-input").reset();
+    $("#user-name-input").reset();
+    $("#email-input").reset();
+    $("#password-input").reset();
 }
