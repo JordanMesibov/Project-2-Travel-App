@@ -40,7 +40,8 @@ $(function () {
       city2: city2Name,
       city3: city3Name,
       city4: city4Name,
-      city5: city5Name
+      city5: city5Name,
+      groupName: groupName
     };
 
     console.log("This is creategroups city1 "+ city1Name);
@@ -79,5 +80,5 @@ $(function () {
       $("#addGroupMembers").val("");
 
     });
-
+  
 });

@@ -15,6 +15,13 @@ var router  = express.Router();
   // Get route for returning specific group info
   router.get("/:id", function(req, res) {
     db.Group.findAll({
+      include: [
+        {
+          model: db.User,
+          through: db.Usergroup
+          },
+        db.VacationOptions
+      ],
       where: {
         id: req.params.id
       }
@@ -30,7 +37,7 @@ var router  = express.Router();
     console.log(req.body);
     db.Group.create({
       // Group rows here
-      vacations: req.body.vacations,
+      // vacations: req.body.vacations,
       name: req.body.name
     })
       .then(function(result) {
