@@ -21,7 +21,7 @@ module.exports = {
         where: {
           username: req.params.username
         },
-        include: [db.Posts]
+        // include: [db.Posts]
       })
       .then(dbUsers => res.json(dbUsers))
       .catch(err => {
@@ -104,42 +104,38 @@ module.exports = {
     console.log(req.user);
     res.json("/");
   },
+
+  findById: function(req, res){
+     db
+      .User
+      .findOne({
+        attributes: ["id", "firstName", "lastName", "fullName", "userName", "email"],
+        where: {
+          id: req.params.id
+        },
+        
+      })
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => {
+        console.log(err);
+        res.status(404).json(err);
+      });
+  },
+
+  updateById: function(req, res){
   
-  // Getting all users in a given group
-  // commended out for now because groupid is no longer a row for users
-    // findByGroup: function(req, res) {
-    // db
-    //   .User
-    //   .findAll({
-    //     where: {
-    //       GroupId: req.params.groupid
-    //     }
-    //   })
-    //   .then(function(result) {
-    //     res.json(result)
-    //     })
-    //   .catch(err => {
-    //     console.log(err);
-    //     res.status(500).json(err);
-    //   });
-  // },
-    // put route to assign users to a 
-     //commented out for now because groupid is no longer a thing for user
-  //   assignGroup: function(req, res) {
-  //   db
-  //     .User
-  //     .update({GroupId: req.params.groupid}, {
-  //       where: {
-          
-  //         id: req.body.id
-  //       }
-  //     })
-  //     .then(function(result) {
-  //       res.json(result);
-  //       })
-  //     .catch(err => {
-  //       console.log(err);
-  //       res.status(500).json(err);
-  //     });
-  // }
+    db
+      .User
+      .update(req.body, {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  },
+  
 }
