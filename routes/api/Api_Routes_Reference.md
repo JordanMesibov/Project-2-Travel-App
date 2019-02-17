@@ -23,6 +23,12 @@ gets user info user id entered as a parameter
 Updates user information for user with id in :id parameter, uses key value pairs sent in req.body to add/change data in fields.
 
 ## /api/groups - to be completed later
+### /api/groups GET route - 
+Gets info for all of the groups
+### /api/groups POST route - 
+Posts new group, with new name in req.body
+### /api/groups/:id GET route -
+Gets information on a specific group with an id passed as a parameter
 
 ## /api/vacations - to be completed later
 
