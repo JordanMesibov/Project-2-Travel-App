@@ -33,9 +33,9 @@ $( "#logInBtn" ).click(function(e) {
       console.log(userInfo);
       location.replace("/dashboard");
     })
-    .catch(err => $('#alert').html(alert)
+    .catch(err => $('#alert').html(alert+err)
     
-      // console.log("Your password or username incorrect!"+err));
+      //console.log("Your password or username incorrect!"+ err);
      
 )});
 
