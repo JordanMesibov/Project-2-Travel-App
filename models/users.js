@@ -48,8 +48,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     hasVoted: {
       type: DataTypes.BOOLEAN,
-      // defaultValue is a flag that defaults a new tables complete value to false if
-      // it isn't supplied one
+      defaultValue: false
+    },
+    isLeader: {
+      type: DataTypes.BOOLEAN,
       defaultValue: false
     },
     password: {
