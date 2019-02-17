@@ -109,7 +109,14 @@ module.exports = {
      db
       .User
       .findOne({
-        attributes: ["id", "firstName", "lastName", "fullName", "userName", "email"],
+        include: [
+        {
+          model: db.Group,
+          include: [db.VacationOptions],
+          through: db.Usergroup,
+          },
+        
+      ],
         where: {
           id: req.params.id
         },
