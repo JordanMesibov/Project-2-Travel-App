@@ -40,7 +40,8 @@ $(function () {
       city2: city2Name,
       city3: city3Name,
       city4: city4Name,
-      city5: city5Name
+      city5: city5Name,
+      groupName: groupName
     };
 
     console.log("This is creategroups city1 "+ city1Name);
@@ -68,7 +69,7 @@ $(function () {
       let newGroupMember = $("#addGroupMembers").val().trim();
       //--------------------------------------------------------------------
       //right here is where we need to POST this user to the DB, before we reassign the newGroupMember variable!
-        // ACTUALLY: SET IT UP SO THAT THE NEW GROUP MEMBERS ARE PUSHED TO AN EMPTY ARRAY, THEN HAVE THE POST ROUTE OF THESE NEW USERS BE PUT INTO A GROUP ON CLICK OF THE SUBMIT BUTTON, NOT ON CLICK OF THE ADD MEMBERS BUTTON!
+        // ACTUALLY: SET IT UP SO THAT THE NEW GROUP MEMBERS ARE PUSHED TO AN EMPTY ARRAY, THEN HAVE THE PUT ROUTE OF THESE NEW USERS BE PUT INTO A GROUP ON CLICK OF THE SUBMIT BUTTON, NOT ON CLICK OF THE ADD MEMBERS BUTTON!
 
       //--------------------------------------------------------------------
       console.log("New Group Member below!");
@@ -79,5 +80,5 @@ $(function () {
       $("#addGroupMembers").val("");
 
     });
-
+  
 });
