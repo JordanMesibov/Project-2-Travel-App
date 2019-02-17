@@ -10,4 +10,4 @@ $(".logoutbtn").click(function() {
 
 
 
-console.log("index.js linked!");
+console.log("index.js linked!");o
