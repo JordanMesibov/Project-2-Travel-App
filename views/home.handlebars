@@ -62,34 +62,53 @@
       <div class="inputbox">
         <form id="login-form" class="needs-validation" novalidate>
           <div class="form-group">
-
-            <input type="text" class="form-control" id="email-input" placeholder="  EMAIL" required>
+            <input type="text" class="form-control" id="email-input1" placeholder="  EMAIL" required>
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="password-input" placeholder="  PASSWORD" required>
+            <input type="password" class="form-control" id="password-input1" placeholder="  PASSWORD" required>
             <div id="alert"></div>
           </div>
           <div class="form-group loginbutton">
             <button type="submit" class="btn btn-primary" id="logInBtn">LOG IN</button>
           </div>
         </form>
+        <div class="works"></div>
       </div>
     </div>
 
 
     <div class="signup hide">
       <h2>SIGN UP</h2>
-      <div class="inputbox">
-        <input type="text" name="fullname" placeholder="  FULLNAME">
-        <input type="text" name="email" placeholder="  EMAIL">
-        <input type="password" name="password" placeholder="  PASSWORD">
-      </div>
-      <button>SIGN UP</button>
-    </div>
+      <div class="inputbox my-0 py-0">
+        <form id="signup-form my-0 py-0">
+          <div class="form-group my-1 py-1">
+            <input type="text" class="form-control my-0 py-0" id="user-name-input" placeholder="  USER NAME" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control mb-1" id="first-name-input" placeholder="  FIRST NAME" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control m-1" id="last-name-input" placeholder="  LAST NAME" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control m-1" id="email-input" placeholder="  EMAIL ADDRESS" required>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control m-1" id="password-input" placeholder="  PASSWORD" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" id="signUp" class="btn btn-primary">SIGN UP</button>
+          </div>
+        </form>
 
+
+      </div>
+
+    </div>
+    <!-- frontbox -->
   </div>
-  <!-- frontbox -->
 </div>
+<button>SIGN UP</button>
 
 
 
@@ -105,5 +124,7 @@ Temp buttons that will be removed at the end of the projected added them for eas
   <a type="button" class="btn btn-lg btn-success" href="/creategroup">Create Group Page</a>
 
 
-  <script src="/js/login.js"></script>
+
   <script src="/js/home.js"></script>
+  <script src="/js/login.js"></script>
+  <script src="/js/signup.js"></script>

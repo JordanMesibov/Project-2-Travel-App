@@ -28,10 +28,24 @@ $(document).ready(function () {
     })
       .then((userInfo) => {
         console.log(userInfo);
-        location.replace("/login")
+        // location.replace("/login")
+        switchFunction();
       })
       .catch(err => console.log(err));
   });
 
 });
 console.log("Signup.js Linked!");
+
+function switchFunction() {
+  alert("works!");
+  $loginMsg.toggleClass("visibility");
+  $frontbox.removeClass("moving");
+  $signupMsg.toggleClass("visibility");
+
+  $signup.toggleClass('hide');
+  $login.toggleClass('hide');
+
+  $(".works").html(`<h4> Sign Up Successful!
+  Please Log In!`)
+}

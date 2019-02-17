@@ -19,8 +19,8 @@ $( "#logInBtn" ).click(function(e) {
     })
 
     const userInfo = {
-      email: $("#email-input").val().trim(),
-      password: $("#password-input").val().trim()
+      email: $("#email-input1").val().trim(),
+      password: $("#password-input1").val().trim()
     };
 
    
