@@ -4,6 +4,7 @@
   "description": "This is my group's repo for Project 2. We will make an app to help groups of people decide on their vacation plans.",
   "main": "server.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^6.2.0",
     "exphbs": "^1.2.0",

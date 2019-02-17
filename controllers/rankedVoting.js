@@ -175,13 +175,12 @@ console.log(`first pref: ${groupMembers[4].firstPref}, second pref: ${groupMembe
 
 
 // import dependencies (routes I will need)
+// const axios = require("axios");
 
-
-
+// 
 
 // Step one: grab all of the city choices/vacaction options for a group. Assign them each a variable.
 //route: vacations/group/:groupID
-
 
 
 // Step two: grab all of the users that are in a group, push them into an array.
@@ -190,6 +189,38 @@ console.log(`first pref: ${groupMembers[4].firstPref}, second pref: ${groupMembe
 
 // Loop through the array of the group members at [i] for their first preference and increase the count for each city at that preference (if three people in the group put tokyo as number 1, tokyo should be assigned a count/value of 3).
 
+//to do that, first establish variables that will hold a count (votes of firstPref) for each city
+city1Count = 0;
+city2Count = 0;
+if (city3Name) {
+  city3Count = 0;
+};
+if (city4Name) {
+  city4Count = 0;
+};
+if (city5Name) {
+  city5count = 0;
+}
+
+//now i can make the for loop
+for (i=0; i < groupMembers.length; i++) {
+  if (groupMembers[i].firstPref === city1Name) {
+    city1Count++;
+  } else if (groupMembers[i].firstPref === city2Name) {
+    city2Count++;
+  } else if (groupMembers[i].firstPref === city3Name) {
+    city3Count++;
+  } else if (groupMembers[i].firstPref === city4Name) {
+    city4Count++;
+  } else if (groupMembers[i].firstPref === city5Name) {
+    city5Count++;
+  }
+};
+console.log(`city1Count: ${city1Count}`);
+console.log(`city2Count: ${city2Count}`);
+console.log(`city3Count: ${city3Count}`);
+console.log(`city4Count: ${city4Count}`);
+console.log(`city5Count: ${city5Count}`);
 // loop thru/compare the counts of each city/vacation option to see which one has the highest amount, AND which one has the lowest amount!
 
 // take the one with the highest count and compare it to the length of the groupMembers array divided by 2 (to check if it recieved greater than 50% of the votes). If it got more than half of the votes, then return it as the recommended winner/ store it as a new variable to push to the DB! (we will have to join this recommended pick with the group id).
