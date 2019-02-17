@@ -29,7 +29,7 @@ $(document).ready(function () {
       .then((userInfo) => {
         console.log(userInfo);
         // location.replace("/login")
-        switchFunction();
+       switchFunction();
       })
       .catch(err => console.log(err));
   });
@@ -47,9 +47,13 @@ function switchFunction() {
 
   $(".works").html(`<h4> Sign Up Successful!
   Please Log In!`)
+ 
+}
+
+function clearFields() {
   $("#first-name-input").reset();
-    $("#last-name-input").reset();
-    $("#user-name-input").reset();
-    $("#email-input").reset();
-    $("#password-input").reset();
+  $("#last-name-input").reset();
+  $("#user-name-input").reset();
+  $("#email-input").reset();
+  $("#password-input").reset();
 }
