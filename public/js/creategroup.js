@@ -1,3 +1,20 @@
+//NavBar Code Start
+$.ajax({
+  url: '/api/users/status',
+  method: 'GET'
+}).then(function(userInfo) {
+  console.log(userInfo);
+  $("#user-name").text(userInfo.full_name);
+  $("#user-info")
+    
+    .append(`<p>Welcome: ${userInfo.userName}</p>`)
+    .append(`<p>Email: ${userInfo.email}</p>`)
+})
+.catch(err => console.log(err));
+//NavBar Code End
+
+
+
 $(function () {
   $("#submit").on("click", function (event) {
     event.preventDefault();
@@ -23,7 +40,8 @@ $(function () {
       city2: city2Name,
       city3: city3Name,
       city4: city4Name,
-      city5: city5Name
+      city5: city5Name,
+      groupName: groupName
     };
 
     console.log("This is creategroups city1 "+ city1Name);
@@ -62,5 +80,5 @@ $(function () {
       $("#addGroupMembers").val("");
 
     });
-
+  
 });

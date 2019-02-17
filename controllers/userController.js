@@ -21,7 +21,7 @@ module.exports = {
         where: {
           username: req.params.username
         },
-        include: [db.Posts]
+        // include: [db.Posts]
       })
       .then(dbUsers => res.json(dbUsers))
       .catch(err => {
@@ -104,40 +104,45 @@ module.exports = {
     console.log(req.user);
     res.json("/");
   },
+
+  findById: function(req, res){
+     db
+      .User
+      .findOne({
+        include: [
+        {
+          model: db.Group,
+          include: [db.VacationOptions],
+          through: db.Usergroup,
+          },
+        
+      ],
+        where: {
+          id: req.params.id
+        },
+        
+      })
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => {
+        console.log(err);
+        res.status(404).json(err);
+      });
+  },
+
+  updateById: function(req, res){
   
-  // Getting all users in a given group
-    findByGroup: function(req, res) {
     db
       .User
-      .findAll({
+      .update(req.body, {
         where: {
-          GroupId: req.params.groupid
+          id: req.params.id
         }
       })
-      .then(function(result) {
-        res.json(result)
-        })
+      .then(dbUsers => res.json(dbUsers))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
   },
-    // put route to assign users to a group
-    assignGroup: function(req, res) {
-    db
-      .User
-      .update({GroupId: req.params.groupid}, {
-        where: {
-          
-          id: req.body.id
-        }
-      })
-      .then(function(result) {
-        res.json(result);
-        })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
+  
 }
