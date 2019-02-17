@@ -56,5 +56,7 @@
 
 ## /api/vacationratings - 
 * /api/vacationratings **GET** -
-  * Gets all vacationratings associations between vacationOptions and
+  * Gets all vacationratings
+* /api/vacationratings **POST** - 
+  * posts a new set of vacation ratings, where city1ranking and city1rating are required and the others optional
    
