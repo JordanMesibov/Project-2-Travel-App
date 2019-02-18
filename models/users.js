@@ -42,10 +42,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 255]
       }
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     hasVoted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
