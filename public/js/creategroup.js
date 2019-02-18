@@ -1,5 +1,12 @@
 let groupNameClicked = localStorage.getItem("groupNameClicked");
 console.log(groupNameClicked);
+let groupNameClickedId = localStorage.getItem("groupNameClickedId");
+console.log(groupNameClickedId)
+
+
+
+
+
 const newGroupMembers = [];
 let groupName = groupNameClicked;
 //dummy data: (get rid of it when we are done)

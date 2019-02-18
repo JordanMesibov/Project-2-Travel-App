@@ -54,8 +54,20 @@ $(document).ready(function () {
         $(".groups").click(function () {
           event.preventDefault();
           let groupNameClicked = $(this).data('type');
-          console.log(groupNameClicked); 
+          console.log(groupNameClicked);
           localStorage.setItem("groupNameClicked", groupNameClicked);
+
+
+          $.ajax({
+            url: `/api/groups/name/${groupNameClicked}`,
+            method: 'GET'
+          }).then(function (response) {
+            // console.log(response);
+            // console.log(response[0].id)
+            groupNameClickedId = response[0].id;
+            // console.log(groupNameClickedId);
+            localStorage.setItem("groupNameClickedId", groupNameClickedId);
+          });
           location.replace("/creategroup");
         });
       })
