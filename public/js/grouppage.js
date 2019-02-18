@@ -18,12 +18,19 @@ $.ajax({
 
 //function to get the cities for that user's group
 function userCities() {
-  
   $.ajax({
-    url: "/api/vacations/" + userName,
+    url: " /api/groups/:name" + groupName,
     method: "GET",
   }).then(function(data) {
-    console.log("This is the data from vacations " + data + "using this group name " + userName);
+    console.log("This is the groupName from group " + groupName);
+    // location.reload();
+  });
+
+  $.ajax({
+    url: "/api/vacations/",
+    method: "GET",
+  }).then(function(data) {
+    console.log("This is the data from vacations " + data);
     // location.reload();
   });
   
