@@ -7,10 +7,12 @@ var vacationOptions = require('./vacationOptions.js');
 var vacationRatings = require('./vacationRatings.js');
 var usergroup = require('./usergroup.js');
 
+
 router.use('/users', users);
 router.use('/groups', groups);
 router.use('/vacations', vacationOptions);
 router.use('/vacationratings', vacationRatings);
 router.use('/usergroup', usergroup);
+
 
 module.exports = router;

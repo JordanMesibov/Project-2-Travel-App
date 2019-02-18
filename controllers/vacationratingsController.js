@@ -44,6 +44,9 @@ module.exports = {
           vacationOptionId: req.params.vacationoptionid
           }
       })
+      .then(function(result) {
+        res.json(result);
+      });
   }
 
 }
