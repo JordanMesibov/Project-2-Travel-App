@@ -60,9 +60,7 @@ module.exports = function(sequelize, DataTypes) {
     models.User.belongsToMany(models.Group, {
       through: "UserGroup"
     });
-    models.User.belongsToMany(models.VacationRatings, {
-      through: "UserVacationRatings"
-    });
+    models.User.hasMany(models.VacationRatings);
   };
   // create method for all user objects to use
   User.prototype.validPassword = function(password) {

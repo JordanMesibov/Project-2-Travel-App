@@ -59,12 +59,4 @@
   * Gets all vacationratings
 * /api/vacationratings **POST** route - 
   * posts a new set of vacation ratings, where city1ranking and city1rating are required and the others optional
-   ----------
-   
-
-## /api/uservacationratings -
-* /api/uservacationratings **GET** route - 
-  * Gets all vacation ratings
-* /api/uservacationratings **POST** route -
-  * adds a new association between a user and a vacationrating
-   
+ 
