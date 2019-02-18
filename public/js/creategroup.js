@@ -87,5 +87,5 @@ $(function () {
 
     
   });
-  window.location.assign("/views/grouppage.handlebars");
+  //window.location.assign("/views/grouppage.handlebars");
 });
