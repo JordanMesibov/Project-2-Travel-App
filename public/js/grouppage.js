@@ -7,6 +7,7 @@ $.ajax({
   }).then(function (userInfo) {
     console.log(userInfo);
     const userId = userInfo.id;
+    console.log ("userId from user/status" + userId);
     userName = $("#user-name").text(userInfo.full_name);
     $("#user-info")
 
@@ -20,13 +21,14 @@ $.ajax({
 
 function getGroup(userId) {
   $.get("/api/groups/:id", userId);
-  const groupId = $(this).GroupId
+  const groupId = this.GroupId;
+  console.log("getGroup's id: " + groupId);
   userCities(groupId);
 }
 //function to get the cities for that user's group
-function userCities(groupId) {
+function userCities(grouIpd) {
 
-  console.log("This is the groupId " + data);
+  console.log("This is the groupId " + groupId);
   $.ajax({
     url: "/api/vacations/:id" + groupId,
     method: "GET",
