@@ -75,4 +75,18 @@ var router  = express.Router();
       });
   });
 
+  // Put route for changing a group
+  router.put("/:id", function(req, res) {
+    db.Group.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
 module.exports = router;
