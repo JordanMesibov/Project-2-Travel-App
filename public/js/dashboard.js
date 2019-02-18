@@ -7,6 +7,11 @@ let isLeader = {
   isLeader: true
 }
 
+groupClicked = {
+  groupName: "",
+  groupId: 0
+}
+
 let temp;
 // console.log(groupLink);
 $(document).ready(function () {
@@ -15,7 +20,7 @@ $(document).ready(function () {
     url: '/api/users/status',
     method: 'GET'
   }).then(function (userInfo) {
-    // console.log(userInfo);
+    console.log(userInfo);
     $("#user-name").text(userInfo.full_name);
     $("#user-info")
 
@@ -44,10 +49,13 @@ $(document).ready(function () {
         //   $("<div class='groups' />").text(newGroupArray[i]).appendTo(".groupdivs");
         // }
         for (i = 0; i < newGroupArray.length; i++) {
-          $("<div class='groups' />").text(newGroupArray[i]).attr("data-id", newGroupArray[i]).appendTo(".groupdivs");
+          $("<div class='groups' />").text(newGroupArray[i]).attr("data-type", newGroupArray[i]).appendTo(".groupdivs");
         }
-
-
+        $(".groups").click(function () {
+          event.preventDefault();
+groupClicked.groupName=$(this).data('type');
+          console.log(groupClicked.groupName);
+        });
       })
       .catch(err => console.log(err));
   });
@@ -98,4 +106,11 @@ $(document).ready(function () {
   $(".joinGroup").click(function () {
     alert("CG clicked");
   });
+
+
+
+  
 });
+
+
+
