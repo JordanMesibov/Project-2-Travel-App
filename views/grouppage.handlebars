@@ -55,11 +55,13 @@
           <div class="form-group">
             <label for="memberPref1">Your Number One Preference:</label>
             <select class="form-control" id="memberPref1">
-              <option>city1Name variable from creategroup.js and/or DB</option>
-              <option>city2Name variable from creategroup.js and/or DB</option>
-              <option>city3Name variable from creategroup.js and/or DB</option>
-              <option>city4Name variable from creategroup.js and/or DB</option>
-              <option>city5Name variable from creategroup.js and/or DB</option>
+              {{#each vacations}}
+              <option>{{this.city1}}</option>
+              <option>{{this.city2}}</option>
+              <option>{{this.city3}}</option>
+              <option{{this.city4}}</option>
+              <option>{{this.city5}}</option>
+              {{/each}}
             </select>
           </div>
 
