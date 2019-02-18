@@ -42,10 +42,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 255]
       }
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     hasVoted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
@@ -64,9 +60,7 @@ module.exports = function(sequelize, DataTypes) {
     models.User.belongsToMany(models.Group, {
       through: "UserGroup"
     });
-    models.User.belongsToMany(models.VacationRatings, {
-      through: "UserVacationRatings"
-    });
+    models.User.hasMany(models.VacationRatings);
   };
   // create method for all user objects to use
   User.prototype.validPassword = function(password) {
