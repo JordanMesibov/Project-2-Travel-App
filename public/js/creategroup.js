@@ -1,3 +1,8 @@
+let groupNameClicked = localStorage.getItem("groupNameClicked");
+console.log(groupNameClicked);
+
+
+
 //NavBar Code Start
 $.ajax({
     url: '/api/users/status',
