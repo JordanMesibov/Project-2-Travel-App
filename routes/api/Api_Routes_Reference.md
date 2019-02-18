@@ -55,8 +55,8 @@
    ----------
 
 ## /api/vacationratings - 
-* /api/vacationratings **GET** -
+* /api/vacationratings **GET** route -
   * Gets all vacationratings
-* /api/vacationratings **POST** - 
+* /api/vacationratings **POST** route - 
   * posts a new set of vacation ratings, where city1ranking and city1rating are required and the others optional
-   
+ 

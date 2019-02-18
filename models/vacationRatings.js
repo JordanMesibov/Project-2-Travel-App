@@ -86,10 +86,13 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
-    models.VacationRatings.belongsToMany(models.User, {
-      through: "UserVacationRatings"
+    models.VacationRatings.belongsTo(models.User, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
     });
-    };
+    }
 
   return VacationRatings;
 };
