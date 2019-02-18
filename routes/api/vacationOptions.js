@@ -12,7 +12,7 @@ var router  = express.Router();
 
   // Get route for returning specific vacationOption info
   router.get("/:id", function(req, res) {
-    db.vacationOptions.findAll({
+    db.VacationOptions.findAll({
       where: {
         id: req.params.id
       }
