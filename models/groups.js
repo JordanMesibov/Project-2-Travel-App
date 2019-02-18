@@ -8,6 +8,13 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           len: [1, 125]
         }
+      },
+      winner: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate:{
+          len: [1, 125]
+        }
       }
       
     });

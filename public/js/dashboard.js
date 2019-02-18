@@ -4,6 +4,10 @@ let groupLink = {
   GroupId: 0,
   UserId: 0
 }
+
+let isLeader = {
+  isLeader: true
+}
 console.log(groupLink);
 $(document).ready(function () {
 
@@ -19,9 +23,9 @@ $(document).ready(function () {
 
         .append(`<p>Welcome: ${userInfo.userName}</p>`)
         .append(`<p>Email: ${userInfo.email}</p>`)
-        
-        groupLink.UserId = userInfo.id;
-        console.log(groupLink);
+
+      groupLink.UserId = userInfo.id;
+      console.log(groupLink);
     })
     .catch(err => console.log(err));
   //NavBar Code End
@@ -42,39 +46,39 @@ $(document).ready(function () {
     }).then(function (groupId) {
       // console.log(groupId);
       // console.log(groupId.id);
-    groupLink.GroupId = groupId.id;
-    console.log(groupLink);
-postIds();
-
-
-
-    });
-
-function postIds() {
-    //links usergroup/username id and sending to database
-    $.ajax({
-      url: "/api/usergroup",
-      method: "POST",
-      data: groupLink // req.body
-    }).then(function (response) {
-      console.log(response);
+      groupLink.GroupId = groupId.id;
+      console.log(groupLink);
+      updateLeader();
+      postIds();
       location.reload();
+
+
+
     });
-};
 
-    // .then(function(data) {
-    //   location.reload();
-    // });
+    function postIds() {
+      //links usergroup/username id and sending to database
+      $.ajax({
+        url: "/api/usergroup",
+        method: "POST",
+        data: groupLink // req.body
+      }).then(function (response) {
+        console.log(response);
+      });
+    };
 
+    function updateLeader() {
+      $.ajax({
+        url: `/api/users/id/${groupLink.UserId}`,
+        method: "PUT",
+        data: isLeader
+      }).then(function (response) {
+        console.log(response);
+      });
+    };
+    
 
   });
-
-
-
-
-
-
-
 
   $(".joinGroup").click(function () {
     alert("CG clicked");
