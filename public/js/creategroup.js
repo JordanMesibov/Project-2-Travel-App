@@ -1,4 +1,18 @@
 const newGroupMembers = [];
+let groupName;
+//dummy data: (get rid of it when we are done)
+groupName = "supergroup";
+let groupId;
+// search DB for where the name of a group = groupName, and get the primary id of that group
+
+//dummy data: (get rid of it when we are done)
+groupId = "1";
+
+
+
+
+
+
 //NavBar Code Start
 $.ajax({
     url: '/api/users/status',
@@ -21,6 +35,27 @@ $.ajax({
 // $(document).ready(function(){
 // this function hides form1 on submit click
 $(function () {
+  //declare the showForm3() function here so it can be used in different places with this whole function.
+  //make function to show form3
+  function showForm3() {
+    $(".form3").addClass("present");
+    $(".form3").removeClass("hidden");
+
+  }
+
+  // only show form1 if the vacation options are not null, otherwise, run showForm3();
+  $.ajax({
+    url: '/api/groups/' + groupId,
+    method: 'GET'
+  }).then(function(res) {
+    console.log(res);
+    if (!res[0].VacationOptions[0]) {
+      showForm1();
+    } else {
+      console.log("trying to run showForm3");
+      showForm3();
+    }
+  });
 
   // function to show form1
   function showForm1() {
@@ -29,14 +64,12 @@ $(function () {
     console.log("showing form1");
 
   }
-  showForm1();
 
   $("#submit").on("click", function (event) {
     event.preventDefault();
-
-    // let groupName = $("#groupName").val().trim();
-    // console.log("The groupName is:");
-    // console.log(groupName);
+    
+    console.log("The groupName is:");
+    console.log(groupName);
 
     let city1Name = $("#city1").val().trim();
     let city2Name = $("#city2").val().trim();
@@ -58,7 +91,7 @@ $(function () {
       city5: city5Name,
       //---------------
       //must get groupname from dashboard
-      // groupName: groupName
+      groupName: groupName
     };
 
     console.log("This is creategroups city1 " + city1Name);
@@ -79,9 +112,24 @@ $(function () {
     function hideForm1() {
     $(".form1").addClass("hidden");
     $(".form1").removeClass("present");
+    // show form2
+    showForm2();
 
     }
     hideForm1();
+  });
+
+  //only show form2 if user is groupLeader and if users have not been added yet.
+  //easier solution: only show form2 if a second member of the group does not exist yet!
+
+  // $.ajax({
+  //   url: '/api/groups/' + groupId,
+  //   method: 'GET'
+  // }).then(function(res) {
+  //   console.log(res);
+  //   if (!res[0].Users[1]) {
+  //     showForm2();
+  //   }
   // });
 
   // make function to show form2
@@ -91,7 +139,6 @@ $(function () {
     $(".form2").removeClass("hidden");
 
   }
-  showForm2();
 
   // here I will put the code for displaying form2 and capturing the data from those fields
   //set up the function for capturing added group members
@@ -138,12 +185,12 @@ $(function () {
       }
       hideForm2();
     
-      //make function to show form3
-      function showForm3() {
-        $(".form3").addClass("present");
-        $(".form3").removeClass("hidden");
+      // //make function to show form3
+      // function showForm3() {
+      //   $(".form3").addClass("present");
+      //   $(".form3").removeClass("hidden");
     
-      }
+      // }
       showForm3();
     });
 
@@ -240,4 +287,4 @@ $(function () {
 
 
 
-});
+// });
