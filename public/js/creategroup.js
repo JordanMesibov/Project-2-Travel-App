@@ -11,11 +11,11 @@ const newGroupMembers = [];
 // let groupName = groupNameClicked;
 //dummy data: (get rid of it when we are done)
 // groupName = "supergroup";
-let groupId;
+// let groupId;
 // search DB for where the name of a group = groupName, and get the primary id of that group
 
 //dummy data: (get rid of it when we are done)
-groupId = "1";
+// groupId = "1";
 
 
 
@@ -54,7 +54,7 @@ $(function () {
 
   // only show form1 if the vacation options are not null, otherwise, run showForm3();
   $.ajax({
-    url: '/api/groups/' + groupId,
+    url: '/api/groups/' + groupNameClickedId,
     method: 'GET'
   }).then(function(res) {
     console.log("here is the response to the groupId get request below");
