@@ -53,8 +53,10 @@ $(document).ready(function () {
         }
         $(".groups").click(function () {
           event.preventDefault();
-groupClicked.groupName=$(this).data('type');
-          console.log(groupClicked.groupName);
+          let groupNameClicked = $(this).data('type');
+          console.log(groupNameClicked); 
+          localStorage.setItem("groupNameClicked", groupNameClicked);
+          location.replace("/creategroup");
         });
       })
       .catch(err => console.log(err));
@@ -109,8 +111,5 @@ groupClicked.groupName=$(this).data('type');
 
 
 
-  
+
 });
-
-
-
