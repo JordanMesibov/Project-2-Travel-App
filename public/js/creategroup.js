@@ -19,7 +19,7 @@ $(function () {
   $("#submit").on("click", function (event) {
     event.preventDefault();
 
-    const groupName = $("#groupName").val().trim();
+    let groupName = $("#groupName").val().trim();
     console.log("The groupName is:");
     console.log(groupName);
     
@@ -35,6 +35,7 @@ $(function () {
     console.log(city3Name);
     console.log(city4Name);
     console.log(city5Name);
+    console.log(groupName);
 
     const vacaInfo = {
       city1: city1Name,
@@ -45,7 +46,7 @@ $(function () {
       groupId: groupName
     };
 
-    console.log("This is creategroups groupId "+ groupId);
+    console.log("This is creategroups groupId "+ groupName);
     $.ajax({
       url: '/api/vacations',
       method: 'POST',
@@ -54,7 +55,7 @@ $(function () {
     .then(() => {
       //CHECK IF THIS (LOCATION.RELOAD();) IS WHAT IS FORCING A RELOAD OF THE PAGE BECAUSE I DONT WANT THAT TO HAPPEN WHILE I AM WORKING WITH THE DATA FOR NOW - JORDAN
 
-      // location.reload();
+      
       console.log("reload prevented! Nice find, Jordan!");
     })
     .catch(err => console.log(err));
@@ -88,8 +89,8 @@ $(function () {
         data: groupName,
       })
       .then(() => {
-       
         console.log("Loaded GroupName into groups" + data);
+        location.then("/views/grouppage.handlebars");
       })
       .catch(err => console.log(err));
     });
