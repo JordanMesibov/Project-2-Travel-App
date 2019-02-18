@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const newGroupMembers = [];
 let groupName;
 //dummy data: (get rid of it when we are done)
@@ -10,6 +11,10 @@ groupId = "1";
 
 
 
+=======
+let groupNameClicked = localStorage.getItem("groupNameClicked");
+console.log(groupNameClicked);
+>>>>>>> 962d9ca51a20ee753688c5d5e7e517ad9d94f085
 
 
 
