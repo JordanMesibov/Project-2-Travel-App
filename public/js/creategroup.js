@@ -1,7 +1,7 @@
 let groupNameClicked = localStorage.getItem("groupNameClicked");
 console.log(groupNameClicked);
 let groupNameClickedId = localStorage.getItem("groupNameClickedId");
-console.log(groupNameClickedId)
+console.log(groupNameClickedId);
 
 
 
@@ -186,14 +186,14 @@ $(function () {
 
       //here I need to loop thru all users and find the ones whose usernames are in the newGroupMembers arr. Loop thru all users, then do a for loop of all newGroupMembers, and if users[i] === newGroupMembers[j], then I will hit the route: /api/usergroup **POST** route - in order to associate that userId with that GroupId
 
-      $.ajax({
-        url: '/api/groups/' + groupId,
-        method: 'GET'
-      }).then(function(res) 
+      // $.ajax({
+      //   url: '/api/groups/' + groupId,
+      //   method: 'GET'
+      // }).then(function(res) 
 
-      for (i=0; i < newGroupMembers.length; i++) {
+      // for (i=0; i < newGroupMembers.length; i++) {
 
-      }
+      // }
 
 
 
