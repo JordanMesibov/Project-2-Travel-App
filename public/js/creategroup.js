@@ -1,8 +1,9 @@
-<<<<<<< HEAD
+let groupNameClicked = localStorage.getItem("groupNameClicked");
+console.log(groupNameClicked);
 const newGroupMembers = [];
-let groupName;
+let groupName = groupNameClicked;
 //dummy data: (get rid of it when we are done)
-groupName = "supergroup";
+// groupName = "supergroup";
 let groupId;
 // search DB for where the name of a group = groupName, and get the primary id of that group
 
@@ -11,10 +12,6 @@ groupId = "1";
 
 
 
-=======
-let groupNameClicked = localStorage.getItem("groupNameClicked");
-console.log(groupNameClicked);
->>>>>>> 962d9ca51a20ee753688c5d5e7e517ad9d94f085
 
 
 
