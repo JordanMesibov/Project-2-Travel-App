@@ -31,6 +31,21 @@ function userCities() {
     method: "GET",
   }).then(function(data) {
     console.log("This is the data from vacations " + data);
+    $.ajax({
+      url: "/api/vacations/",
+      method: "GET",
+    }).then(function(data) {
+      
+      data.append($("#memberPref1"))
+      data.append($("#memberPref2"))
+      data.append($("#memberPref3"))
+      data.append($("#memberPref4"))
+      data.append($("#memberPref5"))
+      // location.reload();
+  
+      console.log("This is the data from vacations " + data);
+    });
+
     // location.reload();
   });
   
