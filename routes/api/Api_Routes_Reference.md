@@ -61,4 +61,8 @@
   * Gets all vacationratings
 * /api/vacationratings **POST** route - 
   * posts a new set of vacation ratings, where city1ranking and city1rating are required and the others optional
+* /api/vacationratings/:id **GET** route - 
+  * Get vacationratings where UserId is id passed in :id parameter
+* /api/vacationratings/vacations/:id **GET** route -
+  * Gets vacationratings where VacationOptionId is id passed in :id parameter
  
