@@ -1,17 +1,18 @@
-// //NavBar Code Start
-// $.ajax({
-//     url: '/api/users/status',
-//     method: 'GET'
-//   }).then(function (userInfo) {
-//     console.log(userInfo);
-//     $("#user-name").text(userInfo.full_name);
-//     $("#user-info")
+const newGroupMembers = [];
+//NavBar Code Start
+$.ajax({
+    url: '/api/users/status',
+    method: 'GET'
+  }).then(function (userInfo) {
+    console.log(userInfo);
+    $("#user-name").text(userInfo.full_name);
+    $("#user-info")
 
-//       .append(`<p>Welcome: ${userInfo.userName}</p>`)
-//       .append(`<p>Email: ${userInfo.email}</p>`)
-//   })
-//   .catch(err => console.log(err));
-// //NavBar Code End
+      .append(`<p>Welcome: ${userInfo.userName}</p>`)
+      .append(`<p>Email: ${userInfo.email}</p>`)
+  })
+  .catch(err => console.log(err));
+//NavBar Code End
 
 
 
@@ -55,22 +56,24 @@ $(function () {
       city3: city3Name,
       city4: city4Name,
       city5: city5Name,
+      //---------------
+      //must get groupname from dashboard
       // groupName: groupName
     };
 
-    // console.log("This is creategroups city1 " + city1Name);
-    // $.ajax({
-    //     url: '/api/vacations',
-    //     method: 'POST',
-    //     data: vacaInfo
-    //   })
-    //   .then(() => {
-    //     //CHECK IF THIS (LOCATION.RELOAD();) IS WHAT IS FORCING A RELOAD OF THE PAGE BECAUSE I DONT WANT THAT TO HAPPEN WHILE I AM WORKING WITH THE DATA FOR NOW - JORDAN
+    console.log("This is creategroups city1 " + city1Name);
+    $.ajax({
+        url: '/api/vacations',
+        method: 'POST',
+        data: vacaInfo
+      })
+      .then(() => {
+        //CHECK IF THIS (LOCATION.RELOAD();) IS WHAT IS FORCING A RELOAD OF THE PAGE BECAUSE I DONT WANT THAT TO HAPPEN WHILE I AM WORKING WITH THE DATA FOR NOW - JORDAN
 
-    //     // location.reload();
-    //     console.log("reload prevented! Nice find, Jordan!");
-    //   })
-    //   .catch(err => console.log(err));
+        // location.reload();
+        console.log("reload prevented! Nice find, Jordan!");
+      })
+      .catch(err => console.log(err));
 
 
     function hideForm1() {
@@ -96,9 +99,11 @@ $(function () {
   $("#addMembers").on("click", function (event) {
     event.preventDefault();
     //capture the input in the addGroupMembers form field
+    
     let newGroupMember = $("#addGroupMembers").val().trim();
+    newGroupMembers.push(newGroupMember);
     //--------------------------------------------------------------------
-    //right here is where we need to POST this user to the DB, before we reassign the newGroupMember variable!
+    
     // ACTUALLY: SET IT UP SO THAT THE NEW GROUP MEMBERS ARE PUSHED TO AN EMPTY ARRAY, THEN HAVE THE PUT ROUTE OF THESE NEW USERS BE PUT INTO A GROUP ON CLICK OF THE SUBMIT BUTTON, NOT ON CLICK OF THE ADD MEMBERS BUTTON!
 
     //--------------------------------------------------------------------
@@ -112,11 +117,24 @@ $(function () {
   });
   
     $("#adding-members-submit").on("click", function (event) {
+      event.preventDefault();
+      console.log(`newGroupMembers arr: ${newGroupMembers}`);
+
+      //----------------------------------------------
+      // here is where Charity will loop through the newGroupMembers array and add all of those members to the group in the DB
+
+
+
+
+
+
+      // --------------------------------------------------------------------------------------
 
       function hideForm2() {
-        $(".form2").addClass("hidden");
         $(".form2").removeClass("present");
-    
+        $(".form2").addClass("hidden");
+
+
       }
       hideForm2();
     
@@ -159,6 +177,7 @@ $(function () {
 
   // adding in code for grabbing preferences on submit
   $("#submit-prefs").on("click", function(event) {
+    event.preventDefault();
 
     let memberPref1 = $("#memberPref1").val();
     console.log(memberPref1);
@@ -213,4 +232,12 @@ $(function () {
 
 });
 });
+
+
+// check if the user is groupLeader = true, if they are the leader, show the tally votes button.
+
+
+
+
+
 });
