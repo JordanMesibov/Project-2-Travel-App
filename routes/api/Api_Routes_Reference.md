@@ -30,6 +30,8 @@
   * Posts new group, with new name in req.body
 * /api/groups/:id **GET** route -
   * Gets information on a specific group with an id passed as a parameter, including associated users and vacationoptions.
+* /api/groups/name/:name **GET** route -
+  * Gets information on a specific group with the name of the group passed as a parameter, including associated users and vacationoptions.
 * /api/groups/:id **DELETE** route - 
   * Deletes group with id passed in parameter
  ----------

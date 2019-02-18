@@ -31,6 +31,24 @@ var router  = express.Router();
       });
   });
 
+// Get route for returning specific group info
+  router.get("/name/:name", function(req, res) {
+    db.Group.findAll({
+      include: [
+        {
+          model: db.User,
+          through: db.Usergroup
+          },
+        db.VacationOptions
+      ],
+      where: {
+        name: req.params.name
+      }
+    })
+      .then(function(result) {
+        res.json(result);
+      });
+  });
 
   // POST route for creating new group
   router.post("/", function(req, res) {
