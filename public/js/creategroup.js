@@ -1,7 +1,7 @@
 let groupNameClicked = localStorage.getItem("groupNameClicked");
 console.log(groupNameClicked);
 const newGroupMembers = [];
-let groupName = groupNameClicked;
+// let groupName = groupNameClicked;
 //dummy data: (get rid of it when we are done)
 // groupName = "supergroup";
 let groupId;
@@ -50,6 +50,7 @@ $(function () {
     url: '/api/groups/' + groupId,
     method: 'GET'
   }).then(function(res) {
+    console.log("here is the response to the groupId get request below");
     console.log(res);
     if (!res[0].VacationOptions[0]) {
       showForm1();
@@ -71,7 +72,7 @@ $(function () {
     event.preventDefault();
     
     console.log("The groupName is:");
-    console.log(groupName);
+    console.log(groupNameClicked);
 
     let city1Name = $("#city1").val().trim();
     let city2Name = $("#city2").val().trim();
@@ -93,7 +94,8 @@ $(function () {
       city5: city5Name,
       //---------------
       //must get groupname from dashboard
-      groupName: groupName
+      // the 1 below will actually say groupNameClickedId, but the 1 is dummy data for now.
+      GroupId: 1
     };
 
     console.log("This is creategroups city1 " + city1Name);
@@ -152,8 +154,11 @@ $(function () {
     let newGroupMember = $("#addGroupMembers").val().trim();
     newGroupMembers.push(newGroupMember);
     //--------------------------------------------------------------------
-    
+
+
     // ACTUALLY: SET IT UP SO THAT THE NEW GROUP MEMBERS ARE PUSHED TO AN EMPTY ARRAY, THEN HAVE THE PUT ROUTE OF THESE NEW USERS BE PUT INTO A GROUP ON CLICK OF THE SUBMIT BUTTON, NOT ON CLICK OF THE ADD MEMBERS BUTTON!
+    // this is where I am working!
+    
 
     //--------------------------------------------------------------------
     console.log("New Group Member below!");
@@ -170,8 +175,18 @@ $(function () {
       console.log(`newGroupMembers arr: ${newGroupMembers}`);
 
       //----------------------------------------------
-      // here is where Charity will loop through the newGroupMembers array and add all of those members to the group in the DB
+      // here is where I will loop through the newGroupMembers array and add all of those members to the group in the DB
 
+      //here I need to loop thru all users and find the ones whose usernames are in the newGroupMembers arr. Loop thru all users, then do a for loop of all newGroupMembers, and if users[i] === newGroupMembers[j], then I will hit the route: /api/usergroup **POST** route - in order to associate that userId with that GroupId
+
+      $.ajax({
+        url: '/api/groups/' + groupId,
+        method: 'GET'
+      }).then(function(res) 
+
+      for (i=0; i < newGroupMembers.length; i++) {
+
+      }
 
 
 
