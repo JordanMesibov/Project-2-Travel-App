@@ -120,8 +120,4 @@ $(document).ready(function () {
   $(".joinGroup").click(function () {
     alert("CG clicked");
   });
-
-
-
-
-});
+  });
