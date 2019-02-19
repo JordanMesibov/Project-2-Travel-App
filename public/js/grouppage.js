@@ -27,7 +27,7 @@ function getGroup(userId) {
   })
   .then(function(groupData) {
     console.log(groupData);
-    const groupId = groupData.GroupId;
+    const groupId = groupData.id;
     console.log("This is the groupId " + groupId);
 
     userCities(groupId);
@@ -57,8 +57,6 @@ function userCities(groupId) {
 
 
 };
-
-
 
 
 $(function () {
