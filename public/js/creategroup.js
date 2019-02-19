@@ -216,7 +216,7 @@ $(function () {
         for (m = 0; m < acquireUserIds.length; m++) {
 
           userGroupObject.UserId = acquireUserIds[m],
-          userGroupObject.GroupId = groupNameClickedId
+            userGroupObject.GroupId = groupNameClickedId
 
           $.ajax({
             url: '/api/usergroup/',
@@ -225,7 +225,7 @@ $(function () {
           }).then(function (resp) {
             console.log("ajax response to adding users to the group below:");
             console.log(resp);
-            
+
           });
         };
 
@@ -238,7 +238,38 @@ $(function () {
 
 
     );
-  });
+
+    function hideForm2() {
+      $(".form2").removeClass("present");
+      $(".form2").addClass("hidden");
+
+
+    }
+    hideForm2();
+
+    // //make function to show form3
+    // function showForm3() {
+    //   $(".form3").addClass("present");
+    //   $(".form3").removeClass("hidden");
+
+    // }
+    showForm3();
+//=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=
+//     function userCities() {
+
+//       $.ajax({
+//         url: "/api/vacations/group/" + groupNameClickedId,
+//         method: "GET",
+//       }).then(function (res) {
+//         console.log(res);
+// // YOU WERE ABOUT TO TEST THIS RESPONSE JORDAN!!!!!
+//       });
+
+//     }
+//     userCities();
+//   });
+
+  //-==-=--==-=--==-=--==-=-==--=-=-=-
   // console.log("Outside of the ajax request, this is what acquireUserIds arr looks like (below):");
   // console.log(acquireUserIds);
 
@@ -264,21 +295,6 @@ $(function () {
 
   // --------------------------------------------------------------------------------------
 
-  function hideForm2() {
-    $(".form2").removeClass("present");
-    $(".form2").addClass("hidden");
-
-
-  }
-  hideForm2();
-
-  // //make function to show form3
-  // function showForm3() {
-  //   $(".form3").addClass("present");
-  //   $(".form3").removeClass("hidden");
-
-  // }
-  showForm3();
   // });
 
 
@@ -286,18 +302,6 @@ $(function () {
 
   // add on click event for capturing form 3 info (grab this code from grouppage.js)
   //function to get the cities for that user's group
-  // function userCities() {
-
-  //   $.ajax({
-  //     url: "/api/vacations/" + userName,
-  //     method: "GET",
-  //   }).then(function (data) {
-  //     console.log("This is the data from vacations " + data + "using this group name " + userName);
-  //     // location.reload();
-  //   });
-
-  // }
-  // userCities();
   //*************
   // here is where we will populate the form by populating city options for that group!
 
