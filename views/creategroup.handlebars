@@ -4,7 +4,7 @@
 
 
 {{!-- NavBar Start --}}
-<nav class="navbar navbar-expand-lg ">
+{{!-- <nav class="navbar navbar-expand-lg ">
   <a class="navbar-brand" href="/">Sonder</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +28,29 @@
 
     </form>
   </div>
-</nav>
+</nav> --}}
+<nav class="navbar navbar-expand-lg">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
 
+
+    <div class="sondertitle2 nav-item active pb-3 mx-2" onclick="location.href='/'">Sonder</div>
+
+
+    <div class="dashboardtitle2 nav-item active text-center mx-4" onclick="location.href='/dashboard'">Dashboard</div>
+
+    <div class="passportinfo" style="display: flex; justify-content: flex-right">
+      <div class="nav-item active user-info mx-2" id="user-info">
+      </div>
+
+      <button type="button" class="btn btn-outline-danger btn-sm m-2 logoutbtn mx-2 mt-4">Log Out</button>
+    </div>
+  </div>
+</nav>
+{{!-- NavBar End --}}
 {{!-- NavBar End --}}
 
 
