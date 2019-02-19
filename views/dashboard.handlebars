@@ -33,13 +33,32 @@
 {{!-- NavBar End --}}
 
 
-<h1>Dashboard</h1>
+<h1 class="title">Dashboard</h1>
 <div class="container">
   <div class="buttonspersonal">
-    <button class="createGroup" data-target=".bd-example-modal-lg" data-toggle="modal">Create Group</button>
-    <button class="joinGroup">Join Group</button>
+    <button class="createGroup cg" data-target=".bd-example-modal-lg" data-toggle="modal">Create Group</button>
+    <button class="joinGroup jg">Join Group</button>
+  </div>
+
+  <div class="container">
+  </div>
+  <div class="row">
+    <div class="col">
+      
+    </div>
+    <div class="col">
+      <div class="container groupdivs text-center">
+ <h2> Your Current Groups</h2>
+ <h6> Click on the group to continue with selection process</h6>
+</div>
+    </div>
+    <div class="col">
+      
+    </div>
   </div>
 </div>
+
+
 
 
 {{!-- Modal Code --}}
@@ -54,8 +73,8 @@
         <div class="card-body">
           <form>
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="newgroupname-input" placeholder="Enter Name">
+              <label for="name">Group Name</label>
+              <input type="text" class="form-control" id="newgroupname-input" placeholder="Enter Group Name">
             </div>
             <button type="submit" class="btn btn-primary submitcreategroup" id="submit-btn">Create Group</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -69,14 +88,14 @@
 </br></br></br></br></br></br></br>
 {{!-- 
 Temp buttons that will be removed at the end of the projected added them for ease of navigation --}}
-<h1>Development Buttons</h1>
+{{!-- <h1>Development Buttons</h1>
 <a type="button" class="btn  btn-lg btn-success" href="/">Home</a>
 <a type="button" class="btn btn-lg btn-success" href="/login">Login PAGE</a>
 <a type="button" class="btn btn-lg btn-success" href="/signup">SignUp PAGE</a>
 <a type="button" class="btn  btn-lg btn-success" href="/dashboard">Dashboard Page</button>
   <a type="button" class="btn btn-lg btn-success" href="/grouppage">Group Page</a>
   <a type="button" class="btn btn-lg btn-success" href="/creategroup">Create Group Page</a>
+ --}}
 
 
-
-  <script src="/js/dashboard.js"></script>
+<script src="/js/dashboard.js"></script>
