@@ -46,7 +46,7 @@
       <div class="nav-item active user-info mx-2" id="user-info">
       </div>
 
-      <button type="button" class="btn btn-outline-danger btn-sm m-2 logoutbtn mx-2 mt-4">Log Out</button>
+      <button type="button" class="btn btn-outline-light btn-sm m-2 logoutbtn mx-2 mt-4">Log Out</button>
     </div>
   </div>
 </nav>
@@ -64,9 +64,9 @@
 
 <div class="container form1 hidden">
 
-  <h1>Create-Group Page</h1>
+  {{!-- <h1>Create-Group Page</h1> --}}
   <div class="card">
-    <div class="card-header bg-success text-light">
+    <div class="card-header bg-dark text-light">
       Let's Get Started!
     </div>
     <div class="card-body">
@@ -123,7 +123,7 @@
 
       </form>
 
-      <a href="#" class="btn btn-primary btn-block" id="submit">Submit</a>
+      <a href="#" class="btn btn-success btn-block" id="submit">Submit</a>
     </div>
   </div>
 
@@ -132,7 +132,7 @@
 {{!-- Here is the form for adding members to a group, named "addingMembersForm" --}}
 <div class="container form2 hidden">
   <div class="card">
-    <div class="card-header bg-success text-light">
+    <div class="card-header bg-dark text-light">
       Let's Add Group Members!
     </div>
 
@@ -144,7 +144,7 @@
           <label for="addGroupMembers">Username of a person you want to add to this group:</label>
           <textarea class="form-control" id="addGroupMembers" rows="1"></textarea>
           <br>
-          <button class="btn btn-success" id="addMembers">Add this user to your new group</button>
+          <button class="btn btn-dark" id="addMembers">Add this user to your new group</button>
           <br>
           <div class="names">
             <p>Added members:</p>
@@ -153,7 +153,7 @@
 
           </div>
 
-          <button class="btn btn-primary btn-block" id="adding-members-submit">Allow yourself and these members to
+          <button class="btn btn-success btn-block" id="adding-members-submit">Allow yourself and these members to
             vote</button>
 
         </div>
@@ -176,7 +176,7 @@
 
 
   <div class="card">
-    <div class="card-header bg-success text-light">
+    <div class="card-header bg-dark text-light">
       <h1 id="groupNameh1"></h1>
     </div>
     <div class="card-body">
@@ -324,7 +324,7 @@
           </select>
         </div>
 
-        <a href="#" class="btn btn-primary btn-block" id="submit-prefs">Submit</a>
+        <a href="#" class="btn btn-success btn-block" id="submit-prefs">Submit</a>
       </form>
     </div>
   </div>
@@ -339,20 +339,6 @@
   <button class="btn-warning btn-block" id="tally-votes-button">Tally the votes of all group members. Only click this
     button if everyone in your group has voted!</button>
 </div>
-
-
-
-{{!-- </br></br></br></br></br></br></br>
-{{!-- 
-Temp buttons that will be removed at the end of the projected added them for ease of navigation --}}
-<h1>Development Buttons</h1>
-<a type="button" class="btn  btn-lg btn-success" href="/">Home</a>
-<a type="button" class="btn btn-lg btn-success" href="/login">Login PAGE</a>
-<a type="button" class="btn btn-lg btn-success" href="/signup">SignUp PAGE</a>
-<a type="button" class="btn  btn-lg btn-success" href="/dashboard">Dashboard Page</button>
-  <a type="button" class="btn btn-lg btn-success" href="/grouppage">Group Page</a>
-  <a type="button" class="btn btn-lg btn-success" href="/creategroup">Create Group Page</a> --}}
-
 
 
 
