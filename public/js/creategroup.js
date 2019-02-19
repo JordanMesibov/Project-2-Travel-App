@@ -3,11 +3,13 @@ console.log(groupNameClicked);
 let groupNameClickedId = localStorage.getItem("groupNameClickedId");
 console.log(groupNameClickedId);
 
-
+let acquireUserIds = [];
+let findUserId;
 
 
 
 const newGroupMembers = [];
+const newGroupMembersIds = [];
 // let groupName = groupNameClicked;
 //dummy data: (get rid of it when we are done)
 // groupName = "supergroup";
@@ -56,7 +58,7 @@ $(function () {
   $.ajax({
     url: '/api/groups/' + groupNameClickedId,
     method: 'GET'
-  }).then(function(res) {
+  }).then(function (res) {
     console.log("here is the response to the groupId get request below");
     console.log(res);
     if (!res[0].VacationOptions[0]) {
@@ -77,7 +79,7 @@ $(function () {
 
   $("#submit").on("click", function (event) {
     event.preventDefault();
-    
+
     console.log("The groupName is:");
     console.log(groupNameClicked);
 
@@ -102,7 +104,7 @@ $(function () {
       //---------------
       //must get groupname from dashboard
       // the 1 below will actually say groupNameClickedId, but the 1 is dummy data for now.
-      GroupId: 1
+      GroupId: groupNameClickedId
     };
 
     console.log("This is creategroups city1 " + city1Name);
@@ -121,10 +123,10 @@ $(function () {
 
 
     function hideForm1() {
-    $(".form1").addClass("hidden");
-    $(".form1").removeClass("present");
-    // show form2
-    showForm2();
+      $(".form1").addClass("hidden");
+      $(".form1").removeClass("present");
+      // show form2
+      showForm2();
 
     }
     hideForm1();
@@ -157,7 +159,7 @@ $(function () {
   $("#addMembers").on("click", function (event) {
     event.preventDefault();
     //capture the input in the addGroupMembers form field
-    
+
     let newGroupMember = $("#addGroupMembers").val().trim();
     newGroupMembers.push(newGroupMember);
     //--------------------------------------------------------------------
@@ -165,7 +167,7 @@ $(function () {
 
     // ACTUALLY: SET IT UP SO THAT THE NEW GROUP MEMBERS ARE PUSHED TO AN EMPTY ARRAY, THEN HAVE THE PUT ROUTE OF THESE NEW USERS BE PUT INTO A GROUP ON CLICK OF THE SUBMIT BUTTON, NOT ON CLICK OF THE ADD MEMBERS BUTTON!
     // this is where I am working!
-    
+
 
     //--------------------------------------------------------------------
     console.log("New Group Member below!");
@@ -176,47 +178,108 @@ $(function () {
     $("#addGroupMembers").val("");
 
   });
-  
-    $("#adding-members-submit").on("click", function (event) {
-      event.preventDefault();
-      console.log(`newGroupMembers arr: ${newGroupMembers}`);
 
-      //----------------------------------------------
-      // here is where I will loop through the newGroupMembers array and add all of those members to the group in the DB
+  $("#adding-members-submit").on("click", function (event) {
+    event.preventDefault();
+    console.log(`newGroupMembers arr: ${newGroupMembers}`);
 
-      //here I need to loop thru all users and find the ones whose usernames are in the newGroupMembers arr. Loop thru all users, then do a for loop of all newGroupMembers, and if users[i] === newGroupMembers[j], then I will hit the route: /api/usergroup **POST** route - in order to associate that userId with that GroupId
+    //----------------------------------------------
+    // here is where I will loop through the newGroupMembers array and add all of those members to the group in the DB
 
-      // $.ajax({
-      //   url: '/api/groups/' + groupId,
-      //   method: 'GET'
-      // }).then(function(res) 
-
-      // for (i=0; i < newGroupMembers.length; i++) {
-
-      // }
+    //here I need to loop thru all users and find the ones whose usernames are in the newGroupMembers arr. Loop thru all users, then do a for loop of all newGroupMembers, and if users[i] === newGroupMembers[j], then I will hit the route: /api/usergroup **POST** route - in order to associate that userId with that GroupId
 
 
 
 
 
-      // --------------------------------------------------------------------------------------
+    $.ajax({
+      url: '/api/users',
+      method: 'GET'
+    }).then(function (response) {
+        console.log("here is all of the data on all of our users");
+        console.log(response);
+        console.log("now running gettingUserIds(). In here, make the loop that pushes all of the userIds of the users that we are trying to add to the group (push these userIds to the acquireUserIds arr).");
+        //for now, we can just loop thru all users of the app since we will only have the user in the group for the demo. This is why I changed the exit condition to be u < response.length -1
+        for (u = 0; u < response.length - 1; u++) {
+          console.log((response[u]).id);
+          console.log("pushing these Ids to acquireUserIds arr");
+          acquireUserIds.push(response[u].id);
+        }
+        console.log("The final version of acquireUserIds arr is below");
+        console.log(acquireUserIds);
 
-      function hideForm2() {
-        $(".form2").removeClass("present");
-        $(".form2").addClass("hidden");
+        // set up the ajax request where I join the userIds in acuireUserIds arr to groupNameClickedId
+        let userGroupObject = {
+          UserId: 0,
+          GroupId: 1
+        };
+        for (m = 0; m < acquireUserIds.length; m++) {
 
+          userGroupObject.UserId = acquireUserIds[m],
+          userGroupObject.GroupId = groupNameClickedId
+
+          $.ajax({
+            url: '/api/usergroup/',
+            method: 'POST',
+            data: userGroupObject
+          }).then(function (resp) {
+            console.log("ajax response to adding users to the group below:");
+            console.log(resp);
+            
+          });
+        };
 
       }
-      hideForm2();
-    
-      // //make function to show form3
-      // function showForm3() {
-      //   $(".form3").addClass("present");
-      //   $(".form3").removeClass("hidden");
-    
-      // }
-      showForm3();
-    });
+
+
+
+
+
+
+
+    );
+  });
+  // console.log("Outside of the ajax request, this is what acquireUserIds arr looks like (below):");
+  // console.log(acquireUserIds);
+
+
+
+  // $.ajax({
+  //   url: '/api/usergroup/',
+  //   method: 'POST',
+  //   data: userGroupObj
+  // }).then(function (res) {
+  //   for (i = 0; i < newGroupMembers.length; i++) {
+  //     console.log("looping through and looking for userId of the added groupmembers");
+  //     console.log(res);
+  //   }
+
+
+  // });
+
+
+
+
+
+
+  // --------------------------------------------------------------------------------------
+
+  function hideForm2() {
+    $(".form2").removeClass("present");
+    $(".form2").addClass("hidden");
+
+
+  }
+  hideForm2();
+
+  // //make function to show form3
+  // function showForm3() {
+  //   $(".form3").addClass("present");
+  //   $(".form3").removeClass("hidden");
+
+  // }
+  showForm3();
+  // });
 
 
   //make function to hide form2
@@ -247,7 +310,7 @@ $(function () {
   //*************
 
   // adding in code for grabbing preferences on submit
-  $("#submit-prefs").on("click", function(event) {
+  $("#submit-prefs").on("click", function (event) {
     event.preventDefault();
 
     let memberPref1 = $("#memberPref1").val();
@@ -280,35 +343,36 @@ $(function () {
     let memberRating5 = $("#memberRating5").val();
     console.log(memberRating5);
 
-  // });
+    // });
 
 
 
 
-  //make function to hide form3
-  function hideForm3() {
-    $(".form3").addClass("hidden");
-    $(".form3").removeClass("present");
-  }
-  hideForm3();
+    //make function to hide form3
+    function hideForm3() {
+      $(".form3").addClass("hidden");
+      $(".form3").removeClass("present");
+    }
+    hideForm3();
 
 
-  // make function to display "Thank you for voting!" text
-  function showThankYou() {
-    $(".thankYou").addClass("present");
-    $(".thankYou").removeClass("hidden");
+    // make function to display "Thank you for voting!" text
+    function showThankYou() {
+      $(".thankYou").addClass("present");
+      $(".thankYou").removeClass("hidden");
 
-  }
-  showThankYou();
+    }
+    showThankYou();
+
+  });
+
+
+
+  // check if the user is groupLeader = true, if they are the leader, show the tally votes button.
+
+
+
+
+
 
 });
-});
-
-
-// check if the user is groupLeader = true, if they are the leader, show the tally votes button.
-
-
-
-
-
-// });
