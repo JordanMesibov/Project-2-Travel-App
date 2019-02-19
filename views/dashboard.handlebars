@@ -1,40 +1,30 @@
 {{!-- CSS file link --}}
 <link rel="stylesheet" href="/css/dashboard.css">
 
-
-
-{{!-- NavBar Start --}}
-<nav class="navbar navbar-expand-lg ">
-  <a class="navbar-brand" href="/">Sonder</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
 
-  <div class="collapse navbar-collapse pfont" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/dashboard">Dashboard</a>
-      </li>
 
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <div class="sondertitle2 nav-item active pb-3 mx-2" onclick="location.href='/'">Sonder</div>
 
-      <div id="user-info"></div>
-      <button type="button" class="btn btn-outline-danger btn-sm m-2 logoutbtn">Log Out</button>
 
-    </form>
+    <div class="dashboardtitle2 nav-item active text-center mx-4">Dashboard</div>
+
+    <div class="passportinfo" style="display: flex; justify-content: flex-right">
+      <div class="nav-item active user-info mx-2" id="user-info">
+      </div>
+
+      <button type="button" class="btn btn-outline-danger btn-sm m-2 logoutbtn mx-2 mt-4">Log Out</button>
+    </div>
   </div>
 </nav>
-
 {{!-- NavBar End --}}
 
-
-<h1 class="title">Dashboard</h1>
-<div class="container">
+<div class="container dashbody">
   <div class="buttonspersonal">
     <button class="createGroup cg" data-target=".bd-example-modal-lg" data-toggle="modal">Create Group</button>
     <button class="joinGroup jg">Join Group</button>
@@ -44,16 +34,16 @@
   </div>
   <div class="row">
     <div class="col">
-      
+
     </div>
     <div class="col">
       <div class="container groupdivs text-center">
- <h2> Your Current Groups</h2>
- <h6> Click on the group to continue with selection process</h6>
-</div>
+        <h2> Your Current Groups</h2>
+        <h6> Click on the group to continue with selection process</h6>
+      </div>
     </div>
     <div class="col">
-      
+
     </div>
   </div>
 </div>

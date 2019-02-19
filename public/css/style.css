@@ -1,8 +1,14 @@
 body {
-  fonts font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, title {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+title {
   font-family: 'Proza Libre', sans-serif;
 }
 
@@ -10,3 +16,41 @@ h1, h2, h3, h4, h5, h6, title {
 fonts font-family: 'Open Sans', sans-serif;
 font-family: 'Proza Libre', sans-serif;
  */
+
+.passportinfo {
+  float: right;
+  text-align: left;
+
+}
+
+.sondertitle2 {
+  color:white;
+  font-size: 85px;
+  text-align: center;
+  vertical-align: bottom;
+  font-family: 'Caveat', cursive;
+}
+.dashboardtitle2 {
+  color:white;
+  font-size: 40px;
+  text-align: center;
+  vertical-align: bottom;
+  font-family: 'Caveat', cursive;
+}
+
+.passportinfo {
+ margin: auto;
+ float: right;
+ color:white;
+ font-size: 20px;
+ font-family: 'Caveat', cursive;
+}
+
+.userinfo {
+  margin: auto;
+}
+
+.logoutbtn {
+  width: 200px;
+  color: white;
+}
