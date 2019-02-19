@@ -103,7 +103,7 @@ $(function () {
       city5: city5Name,
       //---------------
       //must get groupname from dashboard
-      // the 1 below will actually say groupNameClickedId, but the 1 is dummy data for now.
+      
       GroupId: groupNameClickedId
     };
 
@@ -255,19 +255,21 @@ $(function () {
     // }
     showForm3();
 //=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=
-//     function userCities() {
+    function userCities() {
 
-//       $.ajax({
-//         url: "/api/vacations/group/" + groupNameClickedId,
-//         method: "GET",
-//       }).then(function (res) {
-//         console.log(res);
-// // YOU WERE ABOUT TO TEST THIS RESPONSE JORDAN!!!!!
-//       });
+      $.ajax({
+        url: "/api/vacations/group/" + groupNameClickedId,
+        method: "GET",
+      }).then(function (res) {
+        console.log(res);
+// YOU WERE ABOUT TO TEST THIS RESPONSE JORDAN!!!!!
+        //make groupNameh1 be the groupNameClicked below
+        
+      });
 
-//     }
-//     userCities();
-//   });
+    }
+    userCities();
+  });
 
   //-==-=--==-=--==-=--==-=-==--=-=-=-
   // console.log("Outside of the ajax request, this is what acquireUserIds arr looks like (below):");

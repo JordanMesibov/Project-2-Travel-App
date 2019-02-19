@@ -1,5 +1,5 @@
 //declare all global variables first.
-//the city#Name variables may need to be removed from the global level for the final version of the code.
+
 let city1Name = "";
 let city2Name = "";
 let city3Name = "";
