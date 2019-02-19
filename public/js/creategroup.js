@@ -349,7 +349,14 @@ $(function () {
     let memberRating5 = $("#memberRating5").val();
     console.log(memberRating5);
 
+    // send all of this (memberPrefs and memberRatings) to the DB, so that their preferences are associated with the userId and their GroupId! Then, we can pull this data from the DB to populate the variables for rankedVoting.js
+
+
+
+
+
     // });
+    
 
 
 
