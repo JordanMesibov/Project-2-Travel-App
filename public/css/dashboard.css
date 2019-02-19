@@ -3,7 +3,7 @@ body {
   margin-left: 0;
   margin-right: 0;
 
-  background-image: url("../images/city-dark-lights-8047.jpg");
+  background-image: url("../images/architecture-black-and-white-buildings-316902.jpg");
 
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -68,8 +68,8 @@ button:hover{
 }
   
 .logoutbtn {
-  width: auto;
-  height: auto;
+  width: 75px;
+  height: 30px;
     border: none;
   }
 
@@ -81,11 +81,11 @@ button:hover{
   font-size: 35px;
   font-weight: bold;
   width: 50vh;
-  height: 15vh;
+  height: 12vh;
   margin: 5vh;
   padding-top: 5%;
   cursor: pointer;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Caveat', cursive;
 
   text-align:center;
 
@@ -117,4 +117,14 @@ transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
     margin: auto;
     border: 5px white solid;
     padding-top: 3%;
+    font-family: 'Caveat', cursive;
+  }
+
+  .dashbody {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+  }
+
+  .font {
+    font-family: 'Caveat', cursive;
   }
