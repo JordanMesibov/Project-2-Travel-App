@@ -1,5 +1,6 @@
 # Project-2-Travel-App
 
+
 ## Overview
 
 Sometime, it can be hard for a group of people to decide on a location for a group vacation. We wanted to code a way for a group to reach a great decision that hopefully makes the most people as happy as possible. Here!, this is a solution calls a **Sonder project**
