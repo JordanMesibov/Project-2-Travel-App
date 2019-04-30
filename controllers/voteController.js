@@ -7,6 +7,16 @@ const rankedVoting = require('./rankedVoting');
 
 module.exports = {
   runRankedVoting: function(req, res) {
-    res.json("hello");
+
+    // setting up dummy data for now to check if it works
+    city1Name = "Paris";
+    city2Name = "London";
+    city3Name = "Orlando";
+    city4Name = "Shanghai";
+    city5Name = "Tokyo";
+
+    results = rankedVoting(city1Name, city2Name, city3Name, city4Name);
+
+    res.json(results);
   }
 }
