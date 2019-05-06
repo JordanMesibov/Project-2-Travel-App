@@ -68,3 +68,6 @@
 * /api/vacationratings/vacations/:id **GET** route -
   * Gets vacationratings where VacationOptionId is id passed in :id parameter
  
+## /api/vote -
+* /api/vote **POST** route -
+  * Runs ranked voting with given values and returns results (not yet finished)
