@@ -70,4 +70,4 @@
  
 ## /api/vote -
 * /api/vote **POST** route -
-  * Runs ranked voting with given values and returns results (not yet finished)
+  * Runs ranked voting with given group id number passed as parameter :groupId, feeds city names taken from that group's vacationOptions into rankedVoting.js and returns results.  As of now, function only takes in only cities, not votes.  Using dummy vote data, but seems to be actually using input cities.  If no cities selected, sends error string.

@@ -8,15 +8,48 @@ const rankedVoting = require('./rankedVoting');
 module.exports = {
   runRankedVoting: function(req, res) {
 
-    // setting up dummy data for now to check if it works
-    city1Name = "Paris";
-    city2Name = "London";
-    city3Name = "Orlando";
-    city4Name = "Shanghai";
-    city5Name = "Tokyo";
+    // setting up city variables
+    let city1Name;
+    let city2Name;
+    let city3Name;
+    let city4Name;
+    let city5Name;
 
-    results = rankedVoting(city1Name, city2Name, city3Name, city4Name);
+    // setting up function to take in group id as parameter and query db and pull out city names
+    db.Group.findOne({
+      include: [
+        db.VacationOptions
+      ],
+      where: {
+        id: req.params.groupId
+      }
+    })
+      .then(function(result) {
 
-    res.json(results);
-  }
+        // taking cities from returned data and putting them in variables
+        let cities = result.VacationOptions;
+        console.log(cities);
+        if (cities[0]) {
+          city1Name = cities[0].city1;
+        
+          city2Name = cities[0].city2;
+
+          city3Name = cities[0].city3;
+
+          city4Name = cities[0].city4;
+
+          city5Name = cities[0].city5;
+        }
+        else {
+          res.send("There are no cities selected for that group");
+        }
+
+        results = rankedVoting(city1Name, city2Name, city3Name, city4Name, city5Name);
+        return results;
+      })
+      .then(function(results){
+        res.json(results);
+      });
+
 }
+  }

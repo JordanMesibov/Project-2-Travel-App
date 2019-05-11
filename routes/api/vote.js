@@ -4,7 +4,7 @@ var router  = express.Router();
 const vote = require('../../controllers/voteController');
 
 router
-  .route('/')
+  .route('/:groupId')
   .post(vote.runRankedVoting);
 
 module.exports = router;
